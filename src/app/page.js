@@ -2,7 +2,9 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div style={{backgroundColor:"red",height:"100vh",width:"100vw"}} className="">
+    <div>
+      <h1 className="text-4xl font-bold">Welcome to Our Website!</h1>
+      <p className="mt-4 text-lg">This is the homepage of our multi-page website built with Next.js.</p>
     </div>
   );
 }
