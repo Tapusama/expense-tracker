@@ -6,7 +6,6 @@ import Footer from "@/components/Footer";
 import Sidebar from "@/components/SideBar";
 // import { store } from "../redux/store";
 
-
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -27,11 +26,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        {/* <NavBar /> */}
-        {/* <Sidebar/> */}
-        {/* <main className="min-h-screen p-4">{children}</main> */}
-        <Sidebar>{children}</Sidebar>
-        {/* <Footer /> */}
+        <div className="w-screen h-screen flex">
+          <Sidebar />
+
+          <div className="p-5 w-screen">
+            <NavBar />
+            {children}
+          </div>
+        </div>
+        <Footer />
       </body>
     </html>
   );

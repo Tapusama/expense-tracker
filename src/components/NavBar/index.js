@@ -1,45 +1,38 @@
-import Link from "next/link";
+"use client";
+import { IoNotificationsCircleOutline } from "react-icons/io5";
+import { CgProfile } from "react-icons/cg";
+import { CiLight } from "react-icons/ci";
+import SearchBar from "../SearchBar";
+import { useState } from "react";
+import Notificationscreen from "../NotificationScreen";
 
 export default function NavBar() {
-  return ( 
-    <nav className="bg-gray-800 p-4">
-      <ul className="flex space-x-4">
+  const [showNotificationScreen, setShowNotificationScreen] = useState(false);
+  const onClickNotification = (e) => {
+    console.log(e);
+    setShowNotificationScreen(!showNotificationScreen);
+  };
+  return (
+    <nav className="p-4 flex flex-row justify-between">
+      <SearchBar />
+      <ul className="flex space-x-4 relative">
         <li>
-          <Link href="/" className="text-white">
-            Home
-          </Link>
+          <button type="button" className="p-1">
+            <CiLight size={24} />
+          </button>
         </li>
         <li>
-          <Link href="/Profile" className="text-white">
-            Profile
-          </Link>
+          <button type="button" className="p-1" onClick={onClickNotification}>
+            <IoNotificationsCircleOutline size={24} />
+          </button>
         </li>
         <li>
-          <Link href="/Dashboard" className="text-white">
-            Dashboard
-          </Link>
+          <button type="button" className="p-1">
+            <CgProfile size={24} />
+          </button>
         </li>
-        {/* <li>
-          <Link href="/Goal" className="text-white">
-            Goal
-          </Link>
-        </li> */}
-        {/* <li>
-          <Link href="/Wallet" className="text-white">
-            Wallet
-          </Link>
-        </li>
-        <li>
-          <Link href="/Analytics" className="text-white">
-            Analytics
-          </Link>
-        </li>
-        <li>
-          <Link href="/Budget" className="text-white">
-            Budget
-          </Link>
-        </li> */}
       </ul>
+      <Notificationscreen showNotificationScreen={showNotificationScreen} />
     </nav>
   );
 }
