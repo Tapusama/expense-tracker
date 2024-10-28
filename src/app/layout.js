@@ -26,15 +26,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <div className="w-screen h-screen flex">
+        <div className="w-screen h-screen flex" style={{background:"#f6f9fc"}}>
           <Sidebar />
-
-          <div className="p-5 w-screen">
+          <div className="p-5 w-screen ps-20 pe-40">
             <NavBar />
             {children}
           </div>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );
