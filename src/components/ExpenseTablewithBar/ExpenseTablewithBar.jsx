@@ -4,6 +4,7 @@ import "./expences.css";
 import MonthlyBudgetsSlides from "../DashbordComp/MonthlyBudgetsSlides";
 import MultiprogressBar from "../ProgressBar/MultiProgressBar";
 import PaymenthistorySlide from "../DashbordComp/PaymenthistorySlide";
+import SavingsSlides from "../DashbordComp/SavingsSlides";
 
 const ExpenseTablewithBar = memo((props) => {
   const { data, slides, type, title, moreLink } = props;
@@ -46,7 +47,15 @@ const ExpenseTablewithBar = memo((props) => {
       </div>
       {type && type == "Expense" && <MultiprogressBar data={data} />}
 
-      <div className={type == "Expense"?"overflow-hidden":"overflow-auto"}>
+      <div
+        className={
+          type == "Expense"
+            ? "overflow-hidden"
+            : type == "Savings"
+            ? "flex flex-row flex-wrap"
+            : "overflow-auto"
+        }
+      >
         {data && data.length > 0 ? (
           data.map((e, i) => {
             let props = {
@@ -63,6 +72,8 @@ const ExpenseTablewithBar = memo((props) => {
                   <MonthlyBudgetsSlides key={i} {...props} />
                 ) : type == "Payment" ? (
                   <PaymenthistorySlide key={i} {...props} />
+                ) : type == "Savings" ? (
+                  <SavingsSlides key={i} {...props} />
                 ) : (
                   <></>
                 )}

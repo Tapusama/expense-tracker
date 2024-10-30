@@ -1,6 +1,7 @@
 "use client";
 import MonthlyBudgetsSlides from "@/components/DashbordComp/MonthlyBudgetsSlides";
 import PaymenthistorySlide from "@/components/DashbordComp/PaymenthistorySlide";
+import SavingsSlides from "@/components/DashbordComp/SavingsSlides";
 import SmallCards from "@/components/DashbordComp/SmallCards";
 import ExpenseItemSlides from "@/components/ExpenseTablewithBar/expenseItemSlides";
 import ExpenseTablewithBar from "@/components/ExpenseTablewithBar/ExpenseTablewithBar";
@@ -55,8 +56,35 @@ const Dashboard = memo((props) => {
     },
   ];
 
+  let savingsData = [
+    {
+      catagory: "Car",
+      amount: 25600,
+      style: {
+        width: "17%",
+        backgroundColor: "#23347b",
+      },
+    },
+    {
+      catagory: "Gift",
+      amount: 22600,
+      style: { width: "22%", backgroundColor: "red" },
+    },
+    {
+      catagory: "Land",
+      amount: 20600,
+      style: { width: "30%", backgroundColor: "lightgreen" },
+    },
+    {
+      catagory: "Vacation",
+      amount: 15600,
+      style: { width: "30%", backgroundColor: "yellow" },
+    },
+    
+  ];
+
   const propsForLinechart = {
-    title: "Balace Trends Monthly",
+    title: "Monthly Income vs Expenses",
     series: [
       {
         name: "Target (Rs.)",
@@ -75,7 +103,38 @@ const Dashboard = memo((props) => {
           { name: "DEC", y: 550435 },
         ],
       },
-      
+    ],
+    titleY: "in Rupees(Rs",
+    drillDownDataSeries: [],
+    // onClickviewHandler,
+    // inverted,
+    height: "300px",
+    // Options,
+    // styles: { fontFamily: "sans-serif", color: "#000", fontWeight: "bold",background:"red" },
+    header: "Month",
+    unit: "Rs.",
+  };
+
+  const propsForcolumnchart = {
+    title: "Monthly Income vs Expenses",
+    series: [
+      {
+        name: "Target (Rs.)",
+        data: [
+          { name: "JAN", y: 30522 },
+          { name: "FEB", y: 54745 },
+          { name: "MAR", y: 4555 },
+          { name: "APR", y: 603431 },
+          { name: "MAY", y: 210325 },
+          { name: "JUN", y: 3023 },
+          { name: "JUL", y: 11076 },
+          { name: "AUG", y: 150657 },
+          { name: "SEP", y: 25056 },
+          { name: "OCT", y: 45043 },
+          { name: "NOV", y: 350436 },
+          { name: "DEC", y: 550435 },
+        ],
+      },
     ],
     titleY: "in Rupees(Rs",
     drillDownDataSeries: [],
@@ -107,7 +166,44 @@ const Dashboard = memo((props) => {
     slides: <PaymenthistorySlide />,
     type: "Payment",
     title: "Payment History",
-    moreLink:"See more"
+    moreLink: "See more",
+  };
+
+  const propsForWeeklyExpensesChart = {
+    title: "Weekly Expenses",
+    series: [{
+      name: 'Norway',
+      data: [148, 133, 124],
+      stack: 'Europe'
+  }, {
+      name: 'Germany',
+      data: [102, 98, 65],
+      stack: 'Europe'
+  }, {
+      name: 'United States',
+      data: [113, 122, 95],
+      stack: 'North America'
+  }, {
+      name: 'Canada',
+      data: [77, 72, 80],
+      stack: 'North America'
+  }],
+    titleY: "in Rupees(Rs",
+    drillDownDataSeries: [],
+    // onClickviewHandler,
+    // inverted,
+    height: "300px",
+    // Options,
+    // styles: { fontFamily: "sans-serif", color: "#000", fontWeight: "bold",background:"red" },
+    header: "Month",
+    unit: "Rs.",
+  };
+
+  const propsForSavingGoals = {
+    data: savingsData,
+    slides: <SavingsSlides />,
+    type: "Savings",
+    title: "Saving Goals",
   };
   return (
     <div className="p-4 bg-rgba(215, 226, 247, 0.48)">
@@ -157,7 +253,7 @@ const Dashboard = memo((props) => {
           className="border border-gray-100 shadow-md rounded-md ms-4"
           style={{ width: "60%" }}
         >
-          <HighChartColumnGraph {...propsForLinechart} />
+          <HighChartColumnGraph {...propsForcolumnchart} />
         </div>
       </section>
 
@@ -168,7 +264,7 @@ const Dashboard = memo((props) => {
             width: "60%",
           }}
         >
-          <HighChartLineGraph {...propsForLinechart} />
+          <HighChartColumnGraph {...propsForWeeklyExpensesChart} />
         </div>
         <div
           className="border border-gray-100 shadow-md rounded-md ms-4"
@@ -185,13 +281,12 @@ const Dashboard = memo((props) => {
             width: "40%",
           }}
         >
-          <ExpenseTablewithBar {...propsForBudgetBar} />
+          <ExpenseTablewithBar {...propsForSavingGoals} />
         </div>
         <div
           className="border border-gray-100 shadow-md rounded-md ms-4"
           style={{ width: "60%" }}
         >
-          <HighChartLineGraph {...propsForLinechart} />
         </div>
       </section>
     </div>
