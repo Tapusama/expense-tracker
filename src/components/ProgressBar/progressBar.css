@@ -1,0 +1,18 @@
+.multiprogressBar {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 0.5rem;
+  margin-top: 1.2rem;
+}
+
+.singleProgressBar {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 0.5rem;
+  margin-top: 0.5rem;
+  width: 100%;
+}

@@ -1,0 +1,10 @@
+.searchBar{
+    width: 28rem!important;
+    background-color: "red";
+}
+.searchBar-input{
+    width: 26rem!important;
+}
+.searchBar-input:focus {
+    border: 0.5px solid navy;
+  }

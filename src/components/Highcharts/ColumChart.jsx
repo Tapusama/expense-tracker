@@ -5,7 +5,7 @@ require("highcharts/modules/drilldown")(Highcharts);
 require("highcharts/modules/exporting")(Highcharts);
 require("highcharts/modules/export-data")(Highcharts);
 
-const HighChartLineGraph = (props) => {
+const HighChartColumnGraph = (props) => {
   const {
     series,
     title,
@@ -26,7 +26,7 @@ const HighChartLineGraph = (props) => {
     : {
         colors: ["#2f2cd8"],
         chart: {
-          type: "line",
+          type: "column",
           inverted: inverted ? true : false,
           height: height ? height : "",
           borderRadius: "10px",
@@ -177,4 +177,4 @@ const HighChartLineGraph = (props) => {
   );
 };
 
-export default HighChartLineGraph;
+export default HighChartColumnGraph;

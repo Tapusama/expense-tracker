@@ -1,0 +1,55 @@
+.expenseTableWrapper {
+  width: 100%;
+  height: 20rem;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.expenseTableheader {
+  width: 100%;
+  color: #23347b;
+}
+.expenseTablebody {
+  width: 100%;
+  padding: 10px;
+  height: 20rem;
+}
+
+.expenceSlice {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 2rem;
+  margin-top: 1.2rem;
+  justify-content: space-between;
+}
+
+.expenceSlicedot {
+  border-radius: 50%;
+  background-color: #23347b;
+  padding: 0.5rem;
+  margin-right: 5px;
+}
+
+.expenceSliceLeftwrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.expenceSliceRightwrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.expenceamount {
+  color: #ada8a8;
+}
+
+.expencePercentage {
+  color: #23347b;
+}

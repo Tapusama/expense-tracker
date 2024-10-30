@@ -1,0 +1,106 @@
+.budgetProgressBar {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 0.5rem;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.budgetSlide {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 3rem;
+  margin-top: 1.2rem;
+}
+
+.budgetdot {
+  border-radius: 50%;
+  background-color: #23347b;
+  padding: 1.2rem;
+  margin-right: 5px;
+}
+
+.budgetRightwrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.budgetamount {
+  color: #23347b;
+}
+
+.budgetPercentage {
+  color: #23347b;
+}
+
+.budgetAmountNameWrapperDiv {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  justify-content: space-between;
+}
+
+.paymentSlide {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  height: 3rem;
+  margin-top: 1.2rem;
+  justify-content: space-between;
+}
+
+.paymentSlideLeftDiv {
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+}
+
+.paymentSliderightDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.paymentamount {
+  font-size: 16px;
+  color: #23347b;
+  font-weight: 500;
+}
+
+.paymentdate {
+  font-size: 15px;
+  color: #7184ad;
+  font-weight: 300;
+}
+
+.paidFlag {
+  font-size: 12px;
+  background: green;
+  padding: 2px 10px;
+  border-radius: 16px;
+  display: inline-block;
+  color: white;
+}
+
+.dueFlag {
+  font-size: 16px;
+  color: white;
+  font-weight: 300;
+  background-color: yellow;
+  padding: 2px;
+}
+
+
+.cancelFlag {
+  font-size: 16px;
+  color: white;
+  font-weight: 300;
+  background-color:red;
+  padding: 2px;
+}
+.paycategory{
+  color: #1f2c73;
+}
