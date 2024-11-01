@@ -7,6 +7,7 @@ import ExpenseItemSlides from "@/components/ExpenseTablewithBar/expenseItemSlide
 import ExpenseTablewithBar from "@/components/ExpenseTablewithBar/ExpenseTablewithBar";
 import HighChartColumnGraph from "@/components/Highcharts/ColumChart";
 import HighChartLineGraph from "@/components/Highcharts/HighChartLine";
+import StackedColumnChart from "@/components/Highcharts/StackedColumnChart";
 import React, { memo } from "react";
 
 const Dashboard = memo((props) => {
@@ -60,7 +61,7 @@ const Dashboard = memo((props) => {
       style: { width: "10%", backgroundColor: "orange" },
     },
     {
-      catagory: "Education",
+      catagory: "Ration",
       amount: 35600,
       style: { width: "10%", backgroundColor: "orange" },
     },
@@ -95,35 +96,43 @@ const Dashboard = memo((props) => {
       amount: 15600,
       style: { width: "30%", backgroundColor: "yellow" },
     },
-    
   ];
 
   const propsForLinechart = {
-    title: "Monthly Income vs Expenses",
+    title: "Balace Trends",
     series: [
       {
         name: "Target (Rs.)",
         data: [
-          { name: "JAN", y: 30522 },
-          { name: "FEB", y: 54745 },
+          { name: "JAN", y: 3000 },
+          { name: "FEB", y: 5474 },
           { name: "MAR", y: 4555 },
-          { name: "APR", y: 603431 },
-          { name: "MAY", y: 210325 },
+          { name: "APR", y: 6034 },
+          { name: "MAY", y: 2103 },
           { name: "JUN", y: 3023 },
-          { name: "JUL", y: 11076 },
-          { name: "AUG", y: 150657 },
-          { name: "SEP", y: 25056 },
-          { name: "OCT", y: 45043 },
-          { name: "NOV", y: 350436 },
-          { name: "DEC", y: 550435 },
+          { name: "JUL", y: 1107 },
+          { name: "AUG", y: 1506 },
+          { name: "SEP", y: 2505 },
+          { name: "OCT", y: 4504 },
+          { name: "NOV", y: 3504 },
+          { name: "DEC", y: 5504 },
         ],
+        color: "#7271e9", // Line color
+        fillColor: {
+          linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+          stops: [
+            [0, "rgb(239,239,253,0.5)"], // Gradient start (Area color)
+            [1, "rgb(239,239,253, 0.5)"], // Gradient end (transparent)
+          ],
+        },
       },
     ],
     titleY: "in Rupees(Rs",
     drillDownDataSeries: [],
+    type: "area",
     // onClickviewHandler,
     // inverted,
-    height: "300px",
+    // height: "300px",
     // Options,
     // styles: { fontFamily: "sans-serif", color: "#000", fontWeight: "bold",background:"red" },
     header: "Month",
@@ -155,7 +164,7 @@ const Dashboard = memo((props) => {
     drillDownDataSeries: [],
     // onClickviewHandler,
     // inverted,
-    height: "300px",
+    // height: "300px",
     // Options,
     // styles: { fontFamily: "sans-serif", color: "#000", fontWeight: "bold",background:"red" },
     header: "Month",
@@ -186,32 +195,51 @@ const Dashboard = memo((props) => {
 
   const propsForWeeklyExpensesChart = {
     title: "Weekly Expenses",
-    series: [{
-      name: 'Norway',
-      data: [148, 133, 124],
-      stack: 'Europe'
-  }, {
-      name: 'Germany',
-      data: [102, 98, 65],
-      stack: 'Europe'
-  }, {
-      name: 'United States',
-      data: [113, 122, 95],
-      stack: 'North America'
-  }, {
-      name: 'Canada',
-      data: [77, 72, 80],
-      stack: 'North America'
-  }],
+    series: [
+      {
+        name: "Week1",
+        data: [148, 133, 124, 102, 90, 87, 45, 78, 98, 23, 23, 56],
+        color: "#3b82f6",
+      },
+      {
+        name: "Week2",
+        data: [102, 98, 65],
+        color: "#8b5cf6",
+      },
+      {
+        name: "Week3",
+        data: [113, 122, 95],
+        color: "#a855f7",
+      },
+      {
+        name: "Week4",
+        data: [77, 72, 80],
+        color: "#d946ef",
+      },
+      {
+        name: "Week5",
+        data: [77, 72, 80],
+        color: "#EAC7EF",
+      },
+    ],
     titleY: "in Rupees(Rs",
     drillDownDataSeries: [],
-    // onClickviewHandler,
-    // inverted,
-    height: "300px",
-    // Options,
-    // styles: { fontFamily: "sans-serif", color: "#000", fontWeight: "bold",background:"red" },
     header: "Month",
     unit: "Rs.",
+    xAxis: [
+      "JAN",
+      "FEB",
+      "MAR",
+      "APR",
+      "MAY",
+      "JUN",
+      "JUL",
+      "AUG",
+      "SEP",
+      "OCT",
+      "NOV",
+      "DEC",
+    ],
   };
 
   const propsForSavingGoals = {
@@ -238,7 +266,7 @@ const Dashboard = memo((props) => {
         <SmallCards />
       </section>
 
-      <section className="flex flex-row mt-6 ">
+      <section className="flex flex-row mt-6">
         <div
           className="border border-gray-100 shadow-md rounded-md"
           style={{
@@ -279,7 +307,7 @@ const Dashboard = memo((props) => {
             width: "60%",
           }}
         >
-          <HighChartColumnGraph {...propsForWeeklyExpensesChart} />
+          <StackedColumnChart {...propsForWeeklyExpensesChart} />
         </div>
         <div
           className="border border-gray-100 shadow-md rounded-md ms-4"
@@ -301,8 +329,7 @@ const Dashboard = memo((props) => {
         <div
           className="border border-gray-100 shadow-md rounded-md ms-4"
           style={{ width: "60%" }}
-        >
-        </div>
+        ></div>
       </section>
     </div>
   );

@@ -19,6 +19,7 @@ const HighChartLineGraph = (props) => {
     header,
     unit,
     pointerFormat,
+    type,
   } = props;
 
   const options = Options
@@ -26,7 +27,7 @@ const HighChartLineGraph = (props) => {
     : {
         colors: ["#2f2cd8"],
         chart: {
-          type: "line",
+          type: type ? type : "line",
           inverted: inverted ? true : false,
           height: height ? height : "",
           borderRadius: "10px",
@@ -59,24 +60,25 @@ const HighChartLineGraph = (props) => {
             fontSize: "20px", // Title font size
             fontWeight: "bold", // Title font weight
           },
+          margin: 40, // Adjusts the space between the title and the chart
+          y: 30, // Adjusts the vertical position of the title
+          x: 20, // Add left margin (increase or decrease to adjust position)
         },
         credits: {
           enabled: false,
         },
         xAxis: {
-          // type: "category",
-          // gridLineColor: "#e6e6e6", // Vertical grid line color
-          // gridLineDashStyle: "Dash", // Line style (e.g., 'Solid', 'Dash', 'Dot')
-          // gridLineWidth: 1, // Grid line width
+          type: "category",
+          gridLineWidth: 1, // Enables vertical grid lines on the x-axis
+          gridLineColor: "#f7f7f7", // Color for vertical grid lines
+          min: 0, // Set the minimum value to 0 to ensure lines start from the base
         },
 
         yAxis: {
           title: {
             text: titleY,
           },
-          // gridLineColor: "#e6e6e6", // Horizontal grid line color
-          // gridLineDashStyle: "ShortDash", // Grid line style
-          // gridLineWidth: 1,
+          gridLineWidth: 0, // Disables horizontal grid lines on the y-axis
           labels: {
             format: "{value}", // Customize labels on the Y-axis
           },
