@@ -11,21 +11,6 @@ import StackedColumnChart from "@/components/Highcharts/StackedColumnChart";
 import React, { memo } from "react";
 
 const Dashboard = memo((props) => {
-  const data = [
-    { name: "JAN", value: 30 },
-    { name: "FEB", value: 80 },
-    { name: "MAR", value: 45 },
-    { name: "APR", value: 60 },
-    { name: "MAY", value: 210 },
-    { name: "JUN", value: 30 },
-    { name: "JUL", value: 110 },
-    { name: "AUG", value: 150 },
-    { name: "SEP", value: 250 },
-    { name: "OCT", value: 450 },
-    { name: "NOV", value: 350 },
-    { name: "DEC", value: 550 },
-  ];
-
   let expenseData = [
     {
       catagory: "Food",
@@ -75,26 +60,19 @@ const Dashboard = memo((props) => {
   let savingsData = [
     {
       catagory: "Car",
-      amount: 25600,
-      style: {
-        width: "17%",
-        backgroundColor: "#23347b",
-      },
+      amount: 90,
     },
     {
       catagory: "Gift",
-      amount: 22600,
-      style: { width: "22%", backgroundColor: "red" },
+      amount: 87,
     },
     {
       catagory: "Land",
-      amount: 20600,
-      style: { width: "30%", backgroundColor: "lightgreen" },
+      amount: 95,
     },
     {
       catagory: "Vacation",
-      amount: 15600,
-      style: { width: "30%", backgroundColor: "yellow" },
+      amount: 99,
     },
   ];
 
