@@ -20,6 +20,7 @@ const HighChartLineGraph = (props) => {
     unit,
     pointerFormat,
     type,
+    subtitle,
   } = props;
 
   const options = Options
@@ -60,8 +61,14 @@ const HighChartLineGraph = (props) => {
             fontSize: "20px", // Title font size
             fontWeight: "bold", // Title font weight
           },
-          margin: 40, // Adjusts the space between the title and the chart
+          margin: 60, // Adjusts the space between the title and the chart
           y: 30, // Adjusts the vertical position of the title
+          x: 20, // Add left margin (increase or decrease to adjust position)
+        },
+        subtitle: {
+          text: subtitle,
+          align: "left", // Aligns the subtitle
+          y: 50, // Y-offset for positioning
           x: 20, // Add left margin (increase or decrease to adjust position)
         },
         credits: {

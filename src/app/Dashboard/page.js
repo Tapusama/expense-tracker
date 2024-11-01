@@ -76,26 +76,35 @@ const Dashboard = memo((props) => {
       amount: 99,
     },
   ];
+  let BalanceTrendssData = [
+    { name: "JAN", y: 3000 },
+    { name: "FEB", y: 5474 },
+    { name: "MAR", y: 4555 },
+    { name: "APR", y: 6034 },
+    { name: "MAY", y: 2103 },
+    { name: "JUN", y: 3023 },
+    { name: "JUL", y: 1107 },
+    { name: "AUG", y: 1506 },
+    { name: "SEP", y: 2505 },
+    { name: "OCT", y: 4504 },
+    { name: "NOV", y: 3504 },
+    { name: "DEC", y: 5504 },
+  ];
 
   const propsForLinechart = {
     title: "Balace Trends",
+    subtitle: `Rs. ${
+      BalanceTrendssData && BalanceTrendssData.length > 0
+        ? BalanceTrendssData.reduce(
+            (accumulator, current) => accumulator + current.y,
+            0
+          )
+        : 0
+    }`,
     series: [
       {
         name: "Target (Rs.)",
-        data: [
-          { name: "JAN", y: 3000 },
-          { name: "FEB", y: 5474 },
-          { name: "MAR", y: 4555 },
-          { name: "APR", y: 6034 },
-          { name: "MAY", y: 2103 },
-          { name: "JUN", y: 3023 },
-          { name: "JUL", y: 1107 },
-          { name: "AUG", y: 1506 },
-          { name: "SEP", y: 2505 },
-          { name: "OCT", y: 4504 },
-          { name: "NOV", y: 3504 },
-          { name: "DEC", y: 5504 },
-        ],
+        data: BalanceTrendssData,
         color: "#7271e9", // Line color
         fillColor: {
           linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
@@ -179,26 +188,31 @@ const Dashboard = memo((props) => {
         name: "Week1",
         data: [148, 133, 124, 102, 90, 87, 45, 78, 98, 23, 23, 56],
         color: "#3b82f6",
+        pointWidth: 35 // Set the width of the columns here
       },
       {
         name: "Week2",
         data: [102, 98, 65],
         color: "#8b5cf6",
+        pointWidth: 35 
       },
       {
         name: "Week3",
         data: [113, 122, 95],
         color: "#a855f7",
+        pointWidth: 35 
       },
       {
         name: "Week4",
         data: [77, 72, 80],
         color: "#d946ef",
+        pointWidth: 35 
       },
       {
         name: "Week5",
         data: [77, 72, 80],
         color: "#EAC7EF",
+        pointWidth: 35 
       },
     ],
     titleY: "in Rupees(Rs",

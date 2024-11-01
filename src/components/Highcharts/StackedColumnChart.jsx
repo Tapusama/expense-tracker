@@ -43,7 +43,8 @@ const StackedColumnChart = (props) => {
           x: 20, // Add left margin (increase or decrease to adjust position)
         },
         xAxis: {
-          type: xAxis ? xAxis : "category",
+          categories: xAxis,
+          // type:  "category",
           gridLineWidth: 1, // Enables vertical grid lines on the x-axis
           gridLineColor: "#f7f7f7", // Color for vertical grid lines
           min: 0, // Set the minimum value to 0 to ensure lines start from the base
