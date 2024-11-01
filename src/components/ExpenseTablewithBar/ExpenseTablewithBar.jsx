@@ -52,7 +52,7 @@ const ExpenseTablewithBar = memo((props) => {
           type == "Expense"
             ? "overflow-hidden"
             : type == "Savings"
-            ? "flex flex-row flex-wrap"
+            ? "flex flex-row flex-wrap pt-2"
             : "overflow-auto"
         }
       >

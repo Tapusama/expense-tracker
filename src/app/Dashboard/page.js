@@ -35,7 +35,7 @@ const Dashboard = memo((props) => {
       },
     },
     {
-      catagory: "fuel",
+      catagory: "Fuel",
       amount: 22600,
       style: { width: "22%", backgroundColor: "red" },
     },
@@ -48,6 +48,21 @@ const Dashboard = memo((props) => {
       catagory: "Healthcare",
       amount: 15600,
       style: { width: "30%", backgroundColor: "yellow" },
+    },
+    {
+      catagory: "Education",
+      amount: 35600,
+      style: { width: "10%", backgroundColor: "orange" },
+    },
+    {
+      catagory: "Pet",
+      amount: 35600,
+      style: { width: "10%", backgroundColor: "orange" },
+    },
+    {
+      catagory: "Education",
+      amount: 35600,
+      style: { width: "10%", backgroundColor: "orange" },
     },
     {
       catagory: "Education",
@@ -223,7 +238,7 @@ const Dashboard = memo((props) => {
         <SmallCards />
       </section>
 
-      <section className="flex flex-row mt-6">
+      <section className="flex flex-row mt-6 ">
         <div
           className="border border-gray-100 shadow-md rounded-md"
           style={{
