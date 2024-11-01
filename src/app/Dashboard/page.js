@@ -131,21 +131,40 @@ const Dashboard = memo((props) => {
     title: "Monthly Income vs Expenses",
     series: [
       {
-        name: "Target (Rs.)",
+        name: "Income (Rs.)",
         data: [
           { name: "JAN", y: 30522 },
           { name: "FEB", y: 54745 },
-          { name: "MAR", y: 4555 },
-          { name: "APR", y: 603431 },
-          { name: "MAY", y: 210325 },
-          { name: "JUN", y: 3023 },
+          { name: "MAR", y: 45550 },
+          { name: "APR", y: 30230 },
+          { name: "MAY", y: 21032 },
+          { name: "JUN", y: 30230 },
           { name: "JUL", y: 11076 },
-          { name: "AUG", y: 150657 },
+          { name: "AUG", y: 15065 },
           { name: "SEP", y: 25056 },
           { name: "OCT", y: 45043 },
-          { name: "NOV", y: 350436 },
-          { name: "DEC", y: 550435 },
+          { name: "NOV", y: 35043 },
+          { name: "DEC", y: 55043 },
         ],
+        color: "#3b82f6",
+      },
+      {
+        name: "Expenses (Rs.)",
+        data: [
+          { name: "JAN", y: 30520 },
+          { name: "FEB", y: 54740 },
+          { name: "MAR", y: 11076 },
+          { name: "APR", y: 60343 },
+          { name: "MAY", y: 21032 },
+          { name: "JUN", y: 30230 },
+          { name: "JUL", y: 11076 },
+          { name: "AUG", y: 15060 },
+          { name: "SEP", y: 25050 },
+          { name: "OCT", y: 45040 },
+          { name: "NOV", y: 35040 },
+          { name: "DEC", y: 55040 },
+        ],
+        color: "#EAC7EF",
       },
     ],
     titleY: "in Rupees(Rs",
@@ -188,31 +207,31 @@ const Dashboard = memo((props) => {
         name: "Week1",
         data: [148, 133, 124, 102, 90, 87, 45, 78, 98, 23, 23, 56],
         color: "#3b82f6",
-        pointWidth: 35 // Set the width of the columns here
+        pointWidth: 35, // Set the width of the columns here
       },
       {
         name: "Week2",
         data: [102, 98, 65],
         color: "#8b5cf6",
-        pointWidth: 35 
+        pointWidth: 35,
       },
       {
         name: "Week3",
         data: [113, 122, 95],
         color: "#a855f7",
-        pointWidth: 35 
+        pointWidth: 35,
       },
       {
         name: "Week4",
         data: [77, 72, 80],
         color: "#d946ef",
-        pointWidth: 35 
+        pointWidth: 35,
       },
       {
         name: "Week5",
         data: [77, 72, 80],
         color: "#EAC7EF",
-        pointWidth: 35 
+        pointWidth: 35,
       },
     ],
     titleY: "in Rupees(Rs",
