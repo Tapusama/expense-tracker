@@ -34,7 +34,7 @@ const ExpenseTablewithBar = memo((props) => {
               color: e?.style?.backgroundColor,
             };
             return (
-              <>
+              <div key={i}>
                 {type && type == "Expense" ? (
                   <ExpenseItemSlides key={i} {...props} />
                 ) : type == "Budget" ? (
@@ -49,7 +49,7 @@ const ExpenseTablewithBar = memo((props) => {
 
                 {(type && type == "Expense") ||
                   (type == "Payment" && <hr className="mt-2"></hr>)}
-              </>
+              </div>
             );
           })
         ) : (

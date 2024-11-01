@@ -1,0 +1,28 @@
+.tableTitle {
+  font-size: 18px;
+  width: 100%;
+  color: #23347b;
+  padding-left: 5px;
+}
+
+.tableBody {
+  background: transparent;
+  text-align: left;
+  color: #7184ad;
+}
+
+.t-head {
+  background-color: white;
+  text-align: left;
+  color: #1f2c73;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tableWrapper{
+    max-height: 25rem;
+    padding: 20px;
+}

@@ -8,6 +8,7 @@ import ExpenseTablewithBar from "@/components/ExpenseTablewithBar/ExpenseTablewi
 import HighChartColumnGraph from "@/components/Highcharts/ColumChart";
 import HighChartLineGraph from "@/components/Highcharts/HighChartLine";
 import StackedColumnChart from "@/components/Highcharts/StackedColumnChart";
+import CustomTable from "@/components/Table";
 import React, { memo } from "react";
 
 const Dashboard = memo((props) => {
@@ -227,7 +228,7 @@ const Dashboard = memo((props) => {
     title: "Saving Goals",
   };
   return (
-    <div className="p-4 bg-rgba(215, 226, 247, 0.48)">
+    <div className="p-4 bg-rgba(215, 226, 247, 0.48) flex flex-col">
       <h3
         className="text-xl"
         style={{ color: "#23347b", fontWeight: "bolder" }}
@@ -307,7 +308,9 @@ const Dashboard = memo((props) => {
         <div
           className="border border-gray-100 shadow-md rounded-md ms-4"
           style={{ width: "60%" }}
-        ></div>
+        >
+          <CustomTable />
+        </div>
       </section>
     </div>
   );
