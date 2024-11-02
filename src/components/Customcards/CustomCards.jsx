@@ -6,7 +6,7 @@ const CustomCards = memo((props) => {
     props;
   console.log(title);
   return (
-    <div className="border border-gray-100 shadow-sm rounded-md bg-white flex-col w-full p-6">
+    <div className="border border-gray-100 shadow-sm rounded-md bg-white flex-col w-full p-4">
       <div className="p-1 flex flex-row text-[#7184ad] gap-2">
         {icon ? (
           <div className="iconWrapper">{icon}</div>
