@@ -1,10 +1,15 @@
 import React, { memo } from "react";
 
 const SmallCards = memo((props) => {
-  const { title, amount, percentage, lastMonthAnt, type } = props;
-  console.log(title);
+  const { title, amount, percentage, lastMonthAnt, type, className } = props;
   return (
-    <div className="border border-gray-100 shadow-md rounded-md bg-white xs:flex-col xs:w-full sm:flex-col lg:w-1/4 sm:w-full xl:w-1/4 p-6">
+    <div
+      className={
+        className
+          ? className
+          : "border border-gray-100 shadow-md rounded-md bg-white xs:flex-col xs:w-full sm:flex-col lg:w-1/4 sm:w-full xl:w-1/4 p-6"
+      }
+    >
       <p className="font-semibold text-xs text-[#1f2c73]">{title}</p>
       <div className="py-4 text-2xl">
         <b className="text-[#1f2c73]">&#8377;&nbsp;{amount}</b>
