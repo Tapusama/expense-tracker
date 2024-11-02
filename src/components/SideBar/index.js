@@ -16,9 +16,6 @@ const Sidebar = (props) => {
     <div className="flex">
       {/* Sidebar */}
       <div
-        // className={`fixed inset-y-0 left-0 z-50 w-64 bg-gray-800 text-white transform ${
-        //   isOpen ? "translate-x-0" : "-translate-x-full"
-        // } transition-transform duration-300 ease-in-out md:relative md:translate-x-0`}
         className={
           isOpen
             ? "inset-y-0 left-0 z-50 w-56 bg-[#1f2c73] bg-white"

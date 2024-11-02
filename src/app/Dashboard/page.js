@@ -1,4 +1,5 @@
 "use client";
+import React, { memo } from "react";
 import MonthlyBudgetsSlides from "@/components/DashbordComp/MonthlyBudgetsSlides";
 import PaymenthistorySlide from "@/components/DashbordComp/PaymenthistorySlide";
 import SavingsSlides from "@/components/DashbordComp/SavingsSlides";
@@ -9,7 +10,15 @@ import HighChartColumnGraph from "@/components/Highcharts/ColumChart";
 import HighChartLineGraph from "@/components/Highcharts/HighChartLine";
 import StackedColumnChart from "@/components/Highcharts/StackedColumnChart";
 import CustomTable from "@/components/Table";
-import React, { memo } from "react";
+import { MdOutlineLocalGroceryStore } from "react-icons/md";
+import { BsFuelPump } from "react-icons/bs";
+import { IoFastFoodOutline } from "react-icons/io5";
+import { MdOutlineEmojiTransportation } from "react-icons/md";
+import { GiHealthNormal } from "react-icons/gi";
+import { FiBookOpen } from "react-icons/fi";
+import { MdOutlinePets } from "react-icons/md";
+import { MdOutlineSavings } from "react-icons/md";
+
 
 const Dashboard = memo((props) => {
   let expenseData = [
@@ -20,41 +29,49 @@ const Dashboard = memo((props) => {
         width: "17%",
         backgroundColor: "#f97316",
       },
+      icon: <IoFastFoodOutline size={25} color="white" />
     },
     {
       catagory: "Fuel",
       amount: 22600,
       style: { width: "22%", backgroundColor: "#f59e0b" },
+      icon: <BsFuelPump  size={25} color="white" />
     },
     {
       catagory: "Transport",
       amount: 20600,
       style: { width: "30%", backgroundColor: "#eab308" },
+      icon: <MdOutlineEmojiTransportation size={25} color="white" />
     },
     {
       catagory: "Healthcare",
       amount: 15600,
       style: { width: "30%", backgroundColor: "#84cc16" },
+      icon: <GiHealthNormal  size={25} color="white" />
     },
     {
       catagory: "Education",
       amount: 35600,
       style: { width: "10%", backgroundColor: "#22c55e" },
+      icon: <FiBookOpen size={25} color="white" />
     },
     {
       catagory: "Pet",
       amount: 35600,
       style: { width: "10%", backgroundColor: "#06b6d4" },
+      icon: <MdOutlinePets size={25} color="white" />
     },
     {
       catagory: "Ration",
       amount: 35600,
       style: { width: "10%", backgroundColor: "#78716c" },
+      icon: <MdOutlineLocalGroceryStore size={25} color="white" />
     },
     {
-      catagory: "Education",
+      catagory: "Savings",
       amount: 35600,
       style: { width: "10%", backgroundColor: "navy" },
+      icon: <MdOutlineSavings size={25} color="white" />
     },
   ];
 

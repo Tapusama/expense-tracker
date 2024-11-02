@@ -32,6 +32,7 @@ const ExpenseTablewithBar = memo((props) => {
               amount: e?.amount,
               percentage: e?.style?.width,
               color: e?.style?.backgroundColor,
+              icon:e?.icon
             };
             return (
               <div key={i}>
