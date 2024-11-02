@@ -26,3 +26,10 @@
     max-height: 25rem;
     padding: 20px;
 }
+
+.dot {
+  border-radius: 50%;
+  background-color: #23347b;
+  padding: 0.4rem;
+  margin-right: 5px;
+}

@@ -1,5 +1,13 @@
 import React, { memo } from "react";
 import "./Table.css";
+import { MdOutlineLocalGroceryStore } from "react-icons/md";
+import { BsFuelPump } from "react-icons/bs";
+import { IoFastFoodOutline } from "react-icons/io5";
+import { MdOutlineEmojiTransportation } from "react-icons/md";
+import { GiHealthNormal } from "react-icons/gi";
+import { FiBookOpen } from "react-icons/fi";
+import { MdOutlinePets } from "react-icons/md";
+import { MdOutlineSavings } from "react-icons/md";
 
 const CustomTable = memo((props) => {
   const { title, moreLink } = props;
@@ -10,6 +18,8 @@ const CustomTable = memo((props) => {
       amount: 2400,
       currency: "INR",
       description: "Grocery Items and Beverage soft drinks",
+      color: "#10b981",
+      icon: <IoFastFoodOutline size={20} color="white" />,
     },
     {
       category: "Royal Canin",
@@ -17,6 +27,8 @@ const CustomTable = memo((props) => {
       amount: 2400,
       currency: "INR",
       description: "Grocery Items and Beverage soft drinks",
+      color: "#10b981",
+      icon: <MdOutlinePets size={20} color="white" />,
     },
     {
       category: "Comb",
@@ -24,6 +36,8 @@ const CustomTable = memo((props) => {
       amount: 2400,
       currency: "INR",
       description: "Grocery Items and Beverage soft drinks",
+      color: "#10b981",
+      icon: <MdOutlineLocalGroceryStore size={20} color="white" />,
     },
     {
       category: "Cat",
@@ -31,6 +45,8 @@ const CustomTable = memo((props) => {
       amount: 2400,
       currency: "INR",
       description: "Grocery Items and Beverage soft drinks",
+      color: "#10b981",
+      icon: <MdOutlinePets size={20} color="white" />,
     },
     {
       category: "Dog",
@@ -38,6 +54,8 @@ const CustomTable = memo((props) => {
       amount: 2400,
       currency: "INR",
       description: "Grocery Items and Beverage soft drinks",
+      color: "#10b981",
+      icon: <MdOutlinePets size={20} color="white" />,
     },
     {
       category: "Ethernet cable",
@@ -45,6 +63,8 @@ const CustomTable = memo((props) => {
       amount: 2400,
       currency: "INR",
       description: "Grocery Items and Beverage soft drinks",
+      color: "#10b981",
+      icon: <MdOutlineLocalGroceryStore size={20} color="white" />,
     },
     {
       category: "Router",
@@ -52,6 +72,8 @@ const CustomTable = memo((props) => {
       amount: 2400,
       currency: "INR",
       description: "Grocery Items and Beverage soft drinks",
+      color: "#10b981",
+      icon: <MdOutlineLocalGroceryStore size={20} color="white" />,
     },
     {
       category: "Mouse",
@@ -59,6 +81,8 @@ const CustomTable = memo((props) => {
       amount: 2400,
       currency: "INR",
       description: "Grocery Items and Beverage soft drinks",
+      color: "#10b981",
+      icon: <MdOutlineLocalGroceryStore size={20} color="white" />,
     },
     {
       category: "Dog",
@@ -66,6 +90,8 @@ const CustomTable = memo((props) => {
       amount: 2400,
       currency: "INR",
       description: "Grocery Items and Beverage soft drinks",
+      color: "#10b981",
+      icon: <MdOutlinePets size={20} color="white" />,
     },
     {
       category: "Plant",
@@ -73,6 +99,8 @@ const CustomTable = memo((props) => {
       amount: 2400,
       currency: "INR",
       description: "Grocery Items and Beverage soft drinks",
+      color: "#10b981",
+      icon: <IoFastFoodOutline size={20} color="white" />,
     },
     {
       category: "Table",
@@ -80,6 +108,8 @@ const CustomTable = memo((props) => {
       amount: 2400,
       currency: "INR",
       description: "Grocery Items and Beverage soft drinks",
+      color: "#10b981",
+      icon: <MdOutlineLocalGroceryStore size={20} color="white" />,
     },
   ];
   return (
@@ -113,9 +143,14 @@ const CustomTable = memo((props) => {
                 <tr key={i} className="border-b ms-4">
                   <th
                     scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    className="flex flex-row px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                   >
-                    {e.category ?? "Apple MacBook Pro 17"}
+                    <div className="dot" style={{ backgroundColor: e?.color }}>
+                      {e?.icon}
+                    </div>
+                    <span className="text-[#7184ad]">
+                      {e.category ?? "Apple MacBook Pro 17"}
+                    </span>
                   </th>
                   <td className="px-6 py-4"> {e.description}</td>
                   <td className="px-6 py-4"> {e.date.toDateString()}</td>
