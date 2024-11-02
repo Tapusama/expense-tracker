@@ -18,7 +18,7 @@ const Sidebar = (props) => {
       <div
         className={
           isOpen
-            ? "inset-y-0 left-0 z-50 w-56 bg-[#1f2c73] bg-white"
+            ? "inset-y-0 left-0 z-50 w-56 bg-[#1f2c73]"
             : "inset-y-0 left-0 z-50 w-20 bg-[#1f2c73] text-white"
         }
       >
