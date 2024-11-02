@@ -21,8 +21,8 @@ const Sidebar = (props) => {
         // } transition-transform duration-300 ease-in-out md:relative md:translate-x-0`}
         className={
           isOpen
-            ? "inset-y-0 left-0 z-50 w-56 bg-blue-950 text-white"
-            : "inset-y-0 left-0 z-50 w-20 bg-blue-950 text-white"
+            ? "inset-y-0 left-0 z-50 w-56 bg-[#1f2c73] bg-white"
+            : "inset-y-0 left-0 z-50 w-20 bg-[#1f2c73] text-white"
         }
       >
         <div className="p-4">

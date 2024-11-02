@@ -13,7 +13,7 @@ export default function NavBar() {
     setShowNotificationScreen(!showNotificationScreen);
   };
   return (
-    <nav className="ps-4 pe-4 flex flex-row justify-between">
+    <nav className="container flex flex-row justify-between mx-auto">
       <SearchBar />
       <ul className="flex space-x-4 relative">
         <li>

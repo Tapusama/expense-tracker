@@ -18,43 +18,43 @@ const Dashboard = memo((props) => {
       amount: 25600,
       style: {
         width: "17%",
-        backgroundColor: "#23347b",
+        backgroundColor: "#f97316",
       },
     },
     {
       catagory: "Fuel",
       amount: 22600,
-      style: { width: "22%", backgroundColor: "red" },
+      style: { width: "22%", backgroundColor: "#f59e0b" },
     },
     {
       catagory: "Transport",
       amount: 20600,
-      style: { width: "30%", backgroundColor: "lightgreen" },
+      style: { width: "30%", backgroundColor: "#eab308" },
     },
     {
       catagory: "Healthcare",
       amount: 15600,
-      style: { width: "30%", backgroundColor: "yellow" },
+      style: { width: "30%", backgroundColor: "#84cc16" },
     },
     {
       catagory: "Education",
       amount: 35600,
-      style: { width: "10%", backgroundColor: "orange" },
+      style: { width: "10%", backgroundColor: "#22c55e" },
     },
     {
       catagory: "Pet",
       amount: 35600,
-      style: { width: "10%", backgroundColor: "orange" },
+      style: { width: "10%", backgroundColor: "#06b6d4" },
     },
     {
       catagory: "Ration",
       amount: 35600,
-      style: { width: "10%", backgroundColor: "orange" },
+      style: { width: "10%", backgroundColor: "#78716c" },
     },
     {
       catagory: "Education",
       amount: 35600,
-      style: { width: "10%", backgroundColor: "orange" },
+      style: { width: "10%", backgroundColor: "navy" },
     },
   ];
 
@@ -76,6 +76,7 @@ const Dashboard = memo((props) => {
       amount: 99,
     },
   ];
+
   let BalanceTrendssData = [
     { name: "JAN", y: 3000 },
     { name: "FEB", y: 5474 },
@@ -89,6 +90,37 @@ const Dashboard = memo((props) => {
     { name: "OCT", y: 4504 },
     { name: "NOV", y: 3504 },
     { name: "DEC", y: 5504 },
+  ];
+
+  let sectionOneData = [
+    {
+      title: "Total Balance",
+      amount: 432568,
+      lastMonthAnt: 24478,
+      type: "decrease",
+      percentage: "2.47%",
+    },
+    {
+      title: "Total Period Change",
+      amount: 245860,
+      lastMonthAnt: 24478,
+      type: "increase",
+      percentage: "2.47%",
+    },
+    {
+      title: "Total Period Expenses",
+      amount: 25.35,
+      lastMonthAnt: 24478,
+      type: "increase",
+      percentage: "2.47%",
+    },
+    {
+      title: "Total Period Income",
+      amount: 22.56,
+      lastMonthAnt: 24478,
+      type: "increase",
+      percentage: "2.47%",
+    },
   ];
 
   const propsForLinechart = {
@@ -146,7 +178,7 @@ const Dashboard = memo((props) => {
           { name: "NOV", y: 35043 },
           { name: "DEC", y: 55043 },
         ],
-        color: "#3b82f6",
+        color: "#7271e9",
       },
       {
         name: "Expenses (Rs.)",
@@ -164,7 +196,7 @@ const Dashboard = memo((props) => {
           { name: "NOV", y: 35040 },
           { name: "DEC", y: 55040 },
         ],
-        color: "#EAC7EF",
+        color: "#b7afe3",
       },
     ],
     titleY: "in Rupees(Rs",
@@ -261,24 +293,24 @@ const Dashboard = memo((props) => {
     title: "Saving Goals",
   };
   return (
-    <div className="p-4 bg-rgba(215, 226, 247, 0.48) flex flex-col">
-      <h3
-        className="text-xl"
-        style={{ color: "#23347b", fontWeight: "bolder" }}
-      >
-        Dashboard
-      </h3>
-      <p className="mt-2" style={{ color: "#8c8baf", fontSize: "14px" }}>
-        Welcome Expense Tracker!!
-      </p>
-      <section className="flex flex-row justify-between mt-8 mb-2">
-        <SmallCards />
-        <SmallCards />
-        <SmallCards />
-        <SmallCards />
+    <div className="bg-rgba(215, 226, 247, 0.48) flex flex-col container mx-auto py-10 gap-6">
+      <div>
+        <h3 className="text-xl font-semibold text-[#23347b]">Dashboard</h3>
+        <p style={{ color: "#8c8baf", fontSize: "14px" }}>
+          Welcome Expense Tracker!!
+        </p>
+      </div>
+
+      <section className="flex xl:gap-2 lg:gap-2 sm:gap-2 xl:flex-row md:flex-row sm:flex-col sm:w-full">
+        {sectionOneData &&
+          sectionOneData.length > 0 &&
+          sectionOneData.map((e, i) => {
+            let propsFor=e
+            return <SmallCards key={i} {...propsFor} />;
+          })}
       </section>
 
-      <section className="flex flex-row mt-6">
+      <section className="flex flex-row">
         <div
           className="border border-gray-100 shadow-md rounded-md"
           style={{
@@ -295,7 +327,7 @@ const Dashboard = memo((props) => {
         </div>
       </section>
 
-      <section className="flex flex-row mt-6">
+      <section className="flex flex-row">
         <div
           className="border border-gray-100 shadow-md rounded-md"
           style={{
@@ -312,7 +344,7 @@ const Dashboard = memo((props) => {
         </div>
       </section>
 
-      <section className="flex flex-row mt-6">
+      <section className="flex flex-row">
         <div
           className="border border-gray-100 shadow-md rounded-md"
           style={{
@@ -329,7 +361,7 @@ const Dashboard = memo((props) => {
         </div>
       </section>
 
-      <section className="flex flex-row mt-6">
+      <section className="flex flex-row">
         <div
           className="border border-gray-100 shadow-md rounded-md"
           style={{

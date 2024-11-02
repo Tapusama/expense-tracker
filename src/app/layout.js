@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
       <body>
         <div className="w-screen flex" style={{background:"#f6f9fc"}}>
           <Sidebar />
-          <div className="p-5 w-screen ps-20 pe-20">
+          <div className="p-5 w-screen">
             <NavBar />
             {children}
           </div>
