@@ -257,14 +257,6 @@ const Sidebar = (props) => {
           )}
         </div>
       </div>
-
-      {/* Content and Sidebar toggle for mobile */}
-      {/* <div className="flex-1 p-4 md:ml-64"> */}
-      {/* Main content */}
-      {/* <div className="mt-4" style={{ height: "800px" }}>
-          {children}
-        </div> */}
-      {/* </div> */}
     </div>
   );
 };
