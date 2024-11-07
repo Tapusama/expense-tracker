@@ -6,6 +6,7 @@ import Title from "@/components/Title/Title";
 import HighChartLineGraph from "@/components/Highcharts/HighChartLine";
 import SmallCards from "@/components/DashbordComp/SmallCards";
 import CustomTable from "@/components/Table";
+import DebitCard from "@/components/Customcards/DebitCard";
 
 const Wallet = memo((props) => {
   let BalanceTrendssData = [
@@ -77,18 +78,33 @@ const Wallet = memo((props) => {
   };
 
   const propsForDebitCard = {
-    className:
-      "border border-gray-100 shadow-md rounded-md bg-[#23347b] flex-col w-full p-6",
+    className: "debitCard",
+    hr: false,
+    title: "Debit Card",
+    moreLink: "VISA",
+    footerLeft: "User Name",
+    footerRight: "EXP:12/29",
+    subTitle:"",
+    titleClass:"",
+    subTitleClass:"",
+    subfooterClass:"",
+    footerClass:"",
+    moreLink:"",
+    subFooter:"",
+    hr:false,
+    cardBody:"1234 5678 8906 7777",
+    footerLeft:"User name",
+    footerRight:"Exp:mm/yy",
   };
 
   const propsForMonthlyExpenses = {
     className:
       "border border-gray-100 shadow-md rounded-md bg-white flex-col w-full p-6",
-      title: "Monthly Expenses",
-      amount: 245860,
-      lastMonthAnt: 24478,
-      type: "increase",
-      percentage: "2.47%",
+    title: "Monthly Expenses",
+    amount: 245860,
+    lastMonthAnt: 24478,
+    type: "increase",
+    percentage: "2.47%",
   };
   return (
     <div className="bg-rgba(215, 226, 247, 0.48) flex flex-col container mx-auto py-10 gap-6">
@@ -109,7 +125,7 @@ const Wallet = memo((props) => {
           <Title {...propsForTitle} />
           <div className="flex flex-row gap-6">
             <SmallCards {...propsForPersonalFunds} />
-            <SmallCards {...propsForDebitCard} />
+            <DebitCard {...propsForDebitCard} />
           </div>
           <div className="flex flex-row gap-6">
             <SmallCards {...propsForTotalBalance} />
