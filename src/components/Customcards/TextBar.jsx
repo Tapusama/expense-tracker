@@ -8,7 +8,7 @@ const TextBar = memo((props) => {
       className={
         wrapperClass
           ? wrapperClass
-          : "flex flex-row justify-between h-12 items-end"
+          : "flex flex-row justify-between items-end"
       }
     >
       <p

@@ -76,7 +76,7 @@ const Wallet = memo((props) => {
     footerClass: "",
     moreLink: "",
     subFooter: "",
-    cardBody: "1234 5678 8906 7777",
+    cardBody: "",
     footerLeft: "Credit Limits",
     footerRight: "$2500.00",
   };
@@ -105,7 +105,6 @@ const Wallet = memo((props) => {
     footerClass: "",
     moreLink: "",
     subFooter: "",
-    hr: false,
     cardBody: "1234 5678 8906 7777",
     footerLeft: "User name",
     footerRight: "Exp:mm/yy",

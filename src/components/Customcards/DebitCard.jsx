@@ -26,10 +26,11 @@ const DebitCard = memo((props) => {
     leftTextClass: "font-semibold text-md text-[#1f2c73]",
     rightTextClass: "font-semibold text-md text-[#1f2c73]",
   };
+
   const propsForFooter = {
     textLeft: footerLeft,
     textRight: footerRight,
-    wrapperClass: "flex flex-row justify-between h-12 items-end",
+    wrapperClass: "flex flex-row justify-between items-end",
     leftTextClass: "font-semibold text-md text-[#1f2c73]",
     rightTextClass: "font-semibold text-md text-[#1f2c73]",
   };
@@ -42,7 +43,7 @@ const DebitCard = memo((props) => {
           : "border border-gray-100 shadow-md rounded-md bg-white xs:flex-col xs:w-full sm:flex-col lg:w-1/4 sm:w-full xl:w-1/4 p-6"
       }
     >
-      <div className="flex flex-col">
+      <div className="flex flex-col h-1/5">
         <div className="flex flex-row justify-between">
           <p
             className={
@@ -58,26 +59,26 @@ const DebitCard = memo((props) => {
 
         <div className="text-2xl">
           <b className={subTitleClass ? subTitleClass : "text-[#1f2c73]"}>
-            &nbsp;{subTitle ? subTitle : ""}
+            {subTitle ? subTitle : ""}
           </b>
         </div>
       </div>
 
-      <div>
+      <div className="h-1/5">
         <p className="font-bold text-2xl text-[#fff]">
-          {cardBody ? cardBody : "1234  5679  6789  7899"}
+          {cardBody ? cardBody : ""}
         </p>
       </div>
 
-      <TextBar {...propsForSubFooter} />
+      <div className="h-1/5">
+        <TextBar {...propsForSubFooter} />
+      </div>
 
-      {hr === false ? (
-        <div className="p-1 pt-1"></div>
-      ) : (
-        <hr className="p-1 pt-1"></hr>
-      )}
+      <div className="h-1/5">{hr === false ? <div></div> : <hr></hr>}</div>
 
-      <TextBar {...propsForFooter} />
+      <div className="h-1/5">
+        <TextBar {...propsForFooter} />
+      </div>
     </div>
   );
 });
