@@ -1,0 +1,25 @@
+.budgetLeftContainer {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  gap: 15px;
+}
+
+.budgetRightContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.debitCard {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 100%;
+  border: #1e1b4b;
+  box-shadow: 2px;
+  border-radius: 7px;
+  background-color: #1e1b4b;
+  height: 13rem;
+}
