@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 
 const TextBar = memo((props) => {
-  const { textLeft, textRight, wrapperClass, leftTextClass, rightTextClass } =
+  const { textLeft, textRight, wrapperClass, leftTextClass, rightTextClass, icon } =
     props;
   return (
     <div
@@ -25,6 +25,7 @@ const TextBar = memo((props) => {
       >
         {textRight ? textRight : ""}
       </p>
+      
     </div>
   );
 });

@@ -7,6 +7,7 @@ import HighChartLineGraph from "@/components/Highcharts/HighChartLine";
 import SmallCards from "@/components/DashbordComp/SmallCards";
 import CustomTable from "@/components/Table";
 import DebitCard from "@/components/Customcards/DebitCard";
+import { CiSquarePlus } from "react-icons/ci";
 
 const Wallet = memo((props) => {
   let BalanceTrendssData = [
@@ -26,11 +27,11 @@ const Wallet = memo((props) => {
   const propsForLinechart = {
     title: "Balance Overtime",
     subtitle: `Rs. ${BalanceTrendssData && BalanceTrendssData.length > 0
-        ? BalanceTrendssData.reduce(
-          (accumulator, current) => accumulator + current.y,
-          0
-        )
-        : 0
+      ? BalanceTrendssData.reduce(
+        (accumulator, current) => accumulator + current.y,
+        0
+      )
+      : 0
       }`,
     series: [
       {
@@ -61,19 +62,26 @@ const Wallet = memo((props) => {
   const propsForTitle = {
     title: "City Bank",
   };
+  const propsAddMore = {
+    title: "Add new wallet",
+    titleTextClass: "text-sm text-[#1f2c73]",
+    moreLink: <CiSquarePlus color="#1f2c73" size={20} />
+  };
   const propsForPersonalFunds = {
     className:
-      "border border-gray-100 shadow-md rounded-md bg-white flex-col w-full p-6 text-sm",
+      "border border-gray-100 shadow-md rounded-md bg-white flex-col w-full p-6",
     hr: true,
-    title: "Debit Card",
+    title: "Total Balance",
     moreLink: "VISA",
     subFooterLeft: "Personal Funds",
     subFooterRight: "$32,500.28",
     subTitle: "$221,478",
-    titleClass: "",
-    subTitleClass: "",
-    subfooterClass: "",
-    footerClass: "",
+    titleClass: "text-sm text-[#7184ad]",
+    subTitleClass: "text-3xl text-[#1f2c73]",
+    subfooterClassLeft: "text-sm text-[#7184ad]",
+    subfooterClassRight: "font-semibold text-md text-[#1f2c73]",
+    footerClassLeft: "text-sm text-[#7184ad]",
+    footerClassRight: "font-semibold text-md text-[#1f2c73]",
     moreLink: "",
     subFooter: "",
     cardBody: "",
@@ -99,7 +107,7 @@ const Wallet = memo((props) => {
     footerLeft: "User Name",
     footerRight: "EXP:12/29",
     subTitle: "",
-    titleClass: "",
+    titleClass: "font-semibold text-md text-[#7184ad]",
     subTitleClass: "",
     subfooterClass: "",
     footerClass: "",
@@ -133,6 +141,7 @@ const Wallet = memo((props) => {
           <CustomCards />
           <CustomCards />
           <CustomCards />
+          <Title {...propsAddMore} />
         </div>
         <div className="bankCardDetailsWrapper">
           <Title {...propsForTitle} />
