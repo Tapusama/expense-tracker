@@ -25,14 +25,13 @@ const Wallet = memo((props) => {
   ];
   const propsForLinechart = {
     title: "Balance Overtime",
-    subtitle: `Rs. ${
-      BalanceTrendssData && BalanceTrendssData.length > 0
+    subtitle: `Rs. ${BalanceTrendssData && BalanceTrendssData.length > 0
         ? BalanceTrendssData.reduce(
-            (accumulator, current) => accumulator + current.y,
-            0
-          )
+          (accumulator, current) => accumulator + current.y,
+          0
+        )
         : 0
-    }`,
+      }`,
     series: [
       {
         name: "Target (Rs.)",
@@ -64,7 +63,22 @@ const Wallet = memo((props) => {
   };
   const propsForPersonalFunds = {
     className:
-      "border border-gray-100 shadow-md rounded-md bg-white flex-col w-full p-6",
+      "border border-gray-100 shadow-md rounded-md bg-white flex-col w-full p-6 text-sm",
+    hr: true,
+    title: "Debit Card",
+    moreLink: "VISA",
+    subFooterLeft: "Personal Funds",
+    subFooterRight: "$32,500.28",
+    subTitle: "$221,478",
+    titleClass: "",
+    subTitleClass: "",
+    subfooterClass: "",
+    footerClass: "",
+    moreLink: "",
+    subFooter: "",
+    cardBody: "1234 5678 8906 7777",
+    footerLeft: "Credit Limits",
+    footerRight: "$2500.00",
   };
 
   const propsForTotalBalance = {
@@ -84,17 +98,17 @@ const Wallet = memo((props) => {
     moreLink: "VISA",
     footerLeft: "User Name",
     footerRight: "EXP:12/29",
-    subTitle:"",
-    titleClass:"",
-    subTitleClass:"",
-    subfooterClass:"",
-    footerClass:"",
-    moreLink:"",
-    subFooter:"",
-    hr:false,
-    cardBody:"1234 5678 8906 7777",
-    footerLeft:"User name",
-    footerRight:"Exp:mm/yy",
+    subTitle: "",
+    titleClass: "",
+    subTitleClass: "",
+    subfooterClass: "",
+    footerClass: "",
+    moreLink: "",
+    subFooter: "",
+    hr: false,
+    cardBody: "1234 5678 8906 7777",
+    footerLeft: "User name",
+    footerRight: "Exp:mm/yy",
   };
 
   const propsForMonthlyExpenses = {
@@ -124,7 +138,7 @@ const Wallet = memo((props) => {
         <div className="bankCardDetailsWrapper">
           <Title {...propsForTitle} />
           <div className="flex flex-row gap-6">
-            <SmallCards {...propsForPersonalFunds} />
+            <DebitCard {...propsForPersonalFunds} />
             <DebitCard {...propsForDebitCard} />
           </div>
           <div className="flex flex-row gap-6">
