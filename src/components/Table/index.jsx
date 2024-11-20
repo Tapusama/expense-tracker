@@ -10,7 +10,7 @@ import { MdOutlinePets } from "react-icons/md";
 import { MdOutlineSavings } from "react-icons/md";
 
 const CustomTable = memo((props) => {
-  const { tableData } = props;
+  const { tableData,tableHeader } = props;
   ;
   return (
     <div className="overflow-x-auto border border-gray-200 rounded-lg shadow sm bg-white tableWrapper">
@@ -35,6 +35,7 @@ const CustomTable = memo((props) => {
             </th>
           </tr>
         </thead>
+        
         <tbody className="tableBody">
           {tableData &&
             tableData.length > 0 &&
