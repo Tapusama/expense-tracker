@@ -12,6 +12,8 @@ const CustomCards = memo((props) => {
     body,
     footer,
     ProgressCircle,
+    color,
+    hideRight,
   } = props;
   console.log(title);
   return (
@@ -19,11 +21,15 @@ const CustomCards = memo((props) => {
       <div className="p-1 flex flex-row justify-between text-[#7184ad] gap-2">
         <div className="flex flex-row">
           {icon ? (
-            <div className="iconWrapper"> {icon}</div>
+            <div className="iconWrapper" style={{ backgroundColor: color }}>
+              {icon}
+            </div>
           ) : ProgressCircle ? (
-            <div className="circleWrapper">{ProgressCircle}</div>
+            <div className="iconWrapper" style={{ backgroundColor: color }}>
+              {ProgressCircle}
+            </div>
           ) : (
-            <div className="iconWrapper">
+            <div className="iconWrapper" style={{ backgroundColor: color }}>
               <span className={"flex flex-row text-green-500"}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +59,7 @@ const CustomCards = memo((props) => {
           </div>
         </div>
 
-        <div className="text-sm text-slate-500">Week</div>
+        {hideRight ? <></> : <div className="text-sm text-slate-500">Week</div>}
       </div>
 
       {body && (
