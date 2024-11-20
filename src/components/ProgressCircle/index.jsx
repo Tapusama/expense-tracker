@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProgressCircle = ({ progress, size = 100, strokeWidth = 10, color = "#51BB25" }) => {
+const ProgressCircle = ({ progress, size, strokeWidth, color ,fontSize }) => {
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (progress / 100) * circumference;
@@ -32,7 +32,7 @@ const ProgressCircle = ({ progress, size = 100, strokeWidth = 10, color = "#51BB
         y="50%"
         dy=".3em"
         textAnchor="middle"
-        fontSize="20px"
+        fontSize={fontSize?fontSize:"20px"}
         fill={color}
       >
         {`${progress}%`}

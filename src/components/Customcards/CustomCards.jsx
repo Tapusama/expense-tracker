@@ -2,17 +2,28 @@ import React, { memo } from "react";
 import "./CustomCards.css";
 
 const CustomCards = memo((props) => {
-  const { icon, title, amount, percentage, subTitle, type, body, footer } =
-    props;
+  const {
+    icon,
+    title,
+    amount,
+    percentage,
+    subTitle,
+    type,
+    body,
+    footer,
+    ProgressCircle,
+  } = props;
   console.log(title);
   return (
     <div className="border border-gray-100 shadow-sm rounded-md bg-white flex-col w-full p-4">
       <div className="p-1 flex flex-row justify-between text-[#7184ad] gap-2">
         <div className="flex flex-row">
-          <div className="iconWrapper">
-            {icon ? (
-              icon
-            ) : (
+          {icon ? (
+            <div className="iconWrapper"> {icon}</div>
+          ) : ProgressCircle ? (
+            <div className="circleWrapper">{ProgressCircle}</div>
+          ) : (
+            <div className="iconWrapper">
               <span className={"flex flex-row text-green-500"}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -29,9 +40,9 @@ const CustomCards = memo((props) => {
                   />
                 </svg>
               </span>
-            )}
-          </div>
-          
+            </div>
+          )}
+
           <div className="flex flex-col">
             <b className="font-semibold text-[#1f2c73]">
               {title ?? "City Bank"}

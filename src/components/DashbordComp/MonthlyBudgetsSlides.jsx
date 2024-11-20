@@ -20,10 +20,6 @@ const MonthlyBudgetsSlides = memo((props) => {
         </div>
 
         <SingleProgressBar {...propsForSingleProgressBat} />
-
-        {/* <div className="budgetProgressBar rounded-lg bg-slate-200">
-          <div style={{ width: percentage, backgroundColor: color }}></div>;
-        </div> */}
       </div>
     </div>
   );

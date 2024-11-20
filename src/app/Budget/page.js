@@ -10,6 +10,7 @@ import { MdEmojiTransportation } from "react-icons/md";
 import { GiClothes } from "react-icons/gi";
 import { MdOutlineCastForEducation } from "react-icons/md";
 import DebitCard from "@/components/Customcards/DebitCard";
+import SimpleChips from "@/components/SimpleChips/SimpleChips";
 
 const Budget = memo((props) => {
   let BalanceTrendssData = [
@@ -60,7 +61,7 @@ const Budget = memo((props) => {
   };
 
   const propsAddMore = {
-    title: "Add new wallet",
+    title: "Add New Budget",
     titleTextClass: "text-sm text-[#1f2c73]",
     moreLink: <CiSquarePlus color="#1f2c73" size={20} />
   };
@@ -83,10 +84,10 @@ const Budget = memo((props) => {
 
   const propsForSpending = {
     className:
-      "border border-gray-100 shadow-md rounded-md bg-white flex-col w-full p-6",
+      "border border-gray-100 shadow-sm rounded-md bg-white flex-col w-full p-6",
     title: "Spend",
     moreLink: "Budget",
-    moreLinkClass:"text-xs text-[#7184ad]",
+    moreLinkClass: "text-xs text-[#7184ad]",
     // subFooterLeft: "Personal Funds",
     // subFooterRight: "$32,500.28",
     subTitle: "$1458.30",
@@ -100,13 +101,22 @@ const Budget = memo((props) => {
     cardBody: "",
     footerLeft: "25%",
     footerRight: "75%",
-    progresBarProps: { percentage:"25%", color:"#1f2c73 "}
+    progresBarProps: { percentage: "25%", color: "#1f2c73 " }
   };
-  
+
+  const propsForSmallAmounts = {
+    data: [
+      { heading: "Last Month", value: "$3000" },
+      { heading: "Expenses", value: "$5474" },
+      { heading: "Taxes", value: "$4555" },
+      { heading: "Debt", value: "$6034" },
+    ]
+  }
+
   return (
     <div className="bg-rgba(215, 226, 247, 0.48) flex flex-col container mx-auto py-10 gap-6">
       <div>
-        <h3 className="text-xl font-semibold text-[#1e1b4b]">Wallets</h3>
+        <h3 className="text-xl font-semibold text-[#1e1b4b]">Budgets</h3>
         <p className="text-sm py-2 text-[#8c8baf]">
           You can manage your Budget and Estimates here.
         </p>
@@ -122,6 +132,11 @@ const Budget = memo((props) => {
         <div className="budgetRightContainer">
           <Title {...propsForTitle} />
           <DebitCard {...propsForSpending} />
+          <div className="flex flex-row border border-gray-100 shadow-sm rounded-md bg-white p-6">
+            {propsForSmallAmounts.data && propsForSmallAmounts.data.length > 0 && propsForSmallAmounts.data.map((e, i) => {
+              return <SimpleChips key={i} {...e} />
+            })}
+          </div>
           <HighChartLineGraph {...propsForLinechart} />
         </div>
       </div>
