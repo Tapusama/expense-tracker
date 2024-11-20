@@ -57,6 +57,7 @@ const Budget = memo((props) => {
   const propsForTitle = {
     title: "Grocery",
   };
+
   const propsAddMore = {
     title: "Add new wallet",
     titleTextClass: "text-sm text-[#1f2c73]",
@@ -78,6 +79,7 @@ const Budget = memo((props) => {
   const propsForEducation = {
     icon: <MdOutlineCastForEducation color="#1f2c73" size={20} />, title: "Education", subTitle: 1458.30
   };
+  
   return (
     <div className="bg-rgba(215, 226, 247, 0.48) flex flex-col container mx-auto py-10 gap-6">
       <div>
