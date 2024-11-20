@@ -31,6 +31,7 @@ const CustomCards = memo((props) => {
               </span>
             )}
           </div>
+          
           <div className="flex flex-col">
             <b className="font-semibold text-[#1f2c73]">
               {title ?? "City Bank"}
