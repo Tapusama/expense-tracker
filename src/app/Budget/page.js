@@ -5,6 +5,10 @@ import CustomCards from "@/components/Customcards/CustomCards";
 import Title from "@/components/Title/Title";
 import HighChartLineGraph from "@/components/Highcharts/HighChartLine";
 import { CiSquarePlus } from "react-icons/ci";
+import { MdOutlineLocalGroceryStore } from "react-icons/md";
+import { MdEmojiTransportation } from "react-icons/md";
+import { GiClothes } from "react-icons/gi";
+import { MdOutlineCastForEducation } from "react-icons/md";
 
 const Budget = memo((props) => {
   let BalanceTrendssData = [
@@ -58,65 +62,21 @@ const Budget = memo((props) => {
     titleTextClass: "text-sm text-[#1f2c73]",
     moreLink: <CiSquarePlus color="#1f2c73" size={20} />
   };
-  const propsForPersonalFunds = {
-    className:
-      "border border-gray-100 shadow-md rounded-md bg-white flex-col w-full p-6",
-    hr: true,
-    title: "Total Balance",
-    moreLink: "VISA",
-    subFooterLeft: "Personal Funds",
-    subFooterRight: "$32,500.28",
-    subTitle: "$221,478",
-    titleClass: "text-sm text-[#7184ad]",
-    subTitleClass: "text-3xl text-[#1f2c73]",
-    subfooterClassLeft: "text-sm text-[#7184ad]",
-    subfooterClassRight: "font-semibold text-md text-[#1f2c73]",
-    footerClassLeft: "text-sm text-[#7184ad]",
-    footerClassRight: "font-semibold text-md text-[#1f2c73]",
-    moreLink: "",
-    subFooter: "",
-    cardBody: "",
-    footerLeft: "Credit Limits",
-    footerRight: "$2500.00",
+
+  const propsForGrocery = {
+    icon: <MdOutlineLocalGroceryStore color="#1f2c73" size={20} />, title: "Grocery", subTitle: 1458.30
   };
 
-  const propsForTotalBalance = {
-    className:
-      "border border-gray-100 shadow-md rounded-md bg-white flex-col w-full p-6",
-    title: "Total Balance",
-    amount: 245860,
-    lastMonthAnt: 24478,
-    type: "increase",
-    percentage: "2.47%",
+  const propsForTransportation = {
+    icon: <MdEmojiTransportation color="#1f2c73" size={20} />, title: "Transportation", subTitle: 1458.30
   };
 
-  const propsForDebitCard = {
-    className: "debitCard",
-    hr: false,
-    title: "Debit Card",
-    moreLink: "VISA",
-    footerLeft: "User Name",
-    footerRight: "EXP:12/29",
-    subTitle: "",
-    titleClass: "font-semibold text-md text-[#7184ad]",
-    subTitleClass: "",
-    subfooterClass: "",
-    footerClass: "",
-    moreLink: "",
-    subFooter: "",
-    cardBody: "1234 5678 8906 7777",
-    footerLeft: "User name",
-    footerRight: "Exp:mm/yy",
+  const propsForCloths = {
+    icon: <GiClothes color="#1f2c73" size={20} />, title: "Cloths", subTitle: 1458.30
   };
 
-  const propsForMonthlyExpenses = {
-    className:
-      "border border-gray-100 shadow-md rounded-md bg-white flex-col w-full p-6",
-    title: "Monthly Expenses",
-    amount: 245860,
-    lastMonthAnt: 24478,
-    type: "increase",
-    percentage: "2.47%",
+  const propsForEducation = {
+    icon: <MdOutlineCastForEducation color="#1f2c73" size={20} />, title: "Education", subTitle: 1458.30
   };
   return (
     <div className="bg-rgba(215, 226, 247, 0.48) flex flex-col container mx-auto py-10 gap-6">
@@ -128,10 +88,10 @@ const Budget = memo((props) => {
       </div>
       <div className="flex flex-row container h-full gap-6">
         <div className="budgetLeftContainer">
-          <CustomCards />
-          <CustomCards />
-          <CustomCards />
-          <CustomCards />
+          <CustomCards {...propsForGrocery} />
+          <CustomCards {...propsForTransportation} />
+          <CustomCards {...propsForCloths} />
+          <CustomCards {...propsForEducation} />
           <Title {...propsAddMore} />
         </div>
         <div className="budgetRightContainer">
