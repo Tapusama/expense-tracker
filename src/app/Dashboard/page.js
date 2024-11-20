@@ -18,6 +18,7 @@ import { GiHealthNormal } from "react-icons/gi";
 import { FiBookOpen } from "react-icons/fi";
 import { MdOutlinePets } from "react-icons/md";
 import { MdOutlineSavings } from "react-icons/md";
+import { tableData } from "../../../public/data";
 
 
 const Dashboard = memo((props) => {
@@ -391,7 +392,7 @@ const Dashboard = memo((props) => {
           className="border border-gray-100 shadow-md rounded-md ms-4"
           style={{ width: "60%" }}
         >
-          <CustomTable />
+          <CustomTable  tableData={tableData}/>
         </div>
       </section>
     </div>

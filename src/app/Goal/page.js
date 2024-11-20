@@ -15,7 +15,8 @@ import ProgressCircle from '@/components/ProgressCircle';
 import SingleProgressBar from '@/components/ProgressBar/singleProgressBar';
 import ExpenseTablewithBar from '@/components/ExpenseTablewithBar/ExpenseTablewithBar';
 import MonthlyBudgetsSlides from '@/components/DashbordComp/MonthlyBudgetsSlides';
-import { expenseData } from '../../../public/data';
+import { expenseData, goalsHistoryTableData } from '../../../public/data';
+import CustomTable from '@/components/Table';
 
 const Goal = memo((props) => {
   let BalanceTrendssData = [
@@ -159,6 +160,11 @@ const Goal = memo((props) => {
             className="border border-gray-100 shadow-md rounded-md"
           >
             <ExpenseTablewithBar {...propsForBudgetBar} />
+          </div>
+          <div
+            className="border border-gray-100 shadow-md rounded-md"
+          >
+            <CustomTable tableData={goalsHistoryTableData}/>
           </div>
         </div>
       </div>
