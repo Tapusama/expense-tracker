@@ -24,6 +24,7 @@ const Wallet = memo((props) => {
     { name: "NOV", y: 3504 },
     { name: "DEC", y: 5504 },
   ];
+
   const propsForLinechart = {
     title: "Balance Overtime",
     subtitle: `Rs. ${BalanceTrendssData && BalanceTrendssData.length > 0
@@ -62,11 +63,13 @@ const Wallet = memo((props) => {
   const propsForTitle = {
     title: "City Bank",
   };
+
   const propsAddMore = {
     title: "Add new wallet",
     titleTextClass: "text-sm text-[#1f2c73]",
     moreLink: <CiSquarePlus color="#1f2c73" size={20} />
   };
+
   const propsForPersonalFunds = {
     className:
       "border border-gray-100 shadow-md rounded-md bg-white flex-col w-full p-6",
@@ -80,11 +83,12 @@ const Wallet = memo((props) => {
     subTitleClass: "text-3xl text-[#1f2c73]",
     subfooterClassLeft: "text-sm text-[#7184ad]",
     subfooterClassRight: "font-semibold text-md text-[#1f2c73]",
+    subFooterWrapperClass: "flex flex-row justify-between h-8",
     footerClassLeft: "text-sm text-[#7184ad]",
     footerClassRight: "font-semibold text-md text-[#1f2c73]",
     moreLink: "",
-    subFooter: "",
     cardBody: "",
+    cardBodyClass: "font-bold text-2xl text-[#fff] h-1/5",
     footerLeft: "Credit Limits",
     footerRight: "$2500.00",
   };
@@ -100,22 +104,25 @@ const Wallet = memo((props) => {
   };
 
   const propsForDebitCard = {
-    className: "debitCard",
-    hr: false,
     title: "Debit Card",
-    moreLink: "VISA",
-    footerLeft: "User Name",
-    footerRight: "EXP:12/29",
     subTitle: "",
+    className: "debitCard",
     titleClass: "font-semibold text-md text-[#7184ad]",
     subTitleClass: "",
-    subfooterClass: "",
-    footerClass: "",
-    moreLink: "",
-    subFooter: "",
+    subfooterClassLeft: "",
+    subfooterClassRight: "",
+    subFooterLeft: "",
+    subFooterRight: "",
+    subFooterWrapperClass: "flex flex-row justify-between h-8",
+    moreLink: "VISA",
+    hr: false,
     cardBody: "1234 5678 8906 7777",
-    footerLeft: "User name",
-    footerRight: "Exp:mm/yy",
+    cardBodyClass: "font-bold text-2xl text-[#fff] h-1/5",
+    footerLeft: "User Name",
+    footerRight: "EXP:12/29",
+    footerClassLeft: "text-md text-[#fff]",
+    footerClassRight: "text-md text-[#fff]",
+    moreLinkClass: "font-semibold text-md text-[#7184ad]",
   };
 
   const propsForMonthlyExpenses = {
@@ -127,6 +134,7 @@ const Wallet = memo((props) => {
     type: "increase",
     percentage: "2.47%",
   };
+
   return (
     <div className="bg-rgba(215, 226, 247, 0.48) flex flex-col container mx-auto py-10 gap-6">
       <div>

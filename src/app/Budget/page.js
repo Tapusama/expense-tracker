@@ -9,6 +9,7 @@ import { MdOutlineLocalGroceryStore } from "react-icons/md";
 import { MdEmojiTransportation } from "react-icons/md";
 import { GiClothes } from "react-icons/gi";
 import { MdOutlineCastForEducation } from "react-icons/md";
+import DebitCard from "@/components/Customcards/DebitCard";
 
 const Budget = memo((props) => {
   let BalanceTrendssData = [
@@ -79,6 +80,28 @@ const Budget = memo((props) => {
   const propsForEducation = {
     icon: <MdOutlineCastForEducation color="#1f2c73" size={20} />, title: "Education", subTitle: 1458.30
   };
+
+  const propsForSpending = {
+    className:
+      "border border-gray-100 shadow-md rounded-md bg-white flex-col w-full p-6",
+    title: "Spend",
+    moreLink: "Budget",
+    moreLinkClass:"text-xs text-[#7184ad]",
+    // subFooterLeft: "Personal Funds",
+    // subFooterRight: "$32,500.28",
+    subTitle: "$1458.30",
+    titleClass: "text-xs text-[#7184ad]",
+    subTitleClass: "font-semibold text-xl text-[#1f2c73]",
+    // subfooterClassLeft: "text-sm text-[#7184ad]",
+    // subfooterClassRight: "font-semibold text-md text-[#1f2c73]",
+    footerClassLeft: "text-xs text-[#7184ad]",
+    footerClassRight: "text-xs text-[#7184ad]",
+    // subFooter: "",
+    cardBody: "",
+    footerLeft: "25%",
+    footerRight: "75%",
+    progresBarProps: { percentage:"25%", color:"#1f2c73 "}
+  };
   
   return (
     <div className="bg-rgba(215, 226, 247, 0.48) flex flex-col container mx-auto py-10 gap-6">
@@ -98,6 +121,7 @@ const Budget = memo((props) => {
         </div>
         <div className="budgetRightContainer">
           <Title {...propsForTitle} />
+          <DebitCard {...propsForSpending} />
           <HighChartLineGraph {...propsForLinechart} />
         </div>
       </div>

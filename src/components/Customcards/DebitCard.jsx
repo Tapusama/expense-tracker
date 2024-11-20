@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import TextBar from "./TextBar";
+import SingleProgressBar from "../ProgressBar/singleProgressBar";
 
 const DebitCard = memo((props) => {
   const {
@@ -12,29 +13,44 @@ const DebitCard = memo((props) => {
     subfooterClassRight,
     footerClassLeft,
     footerClassRight,
+    footerLeft,
+    footerRight,
+    footerWrapperClass,
     moreLink,
     subFooterLeft,
     subFooterRight,
+    subFooterWrapperClass,
     hr,
     cardBody,
-    footerLeft,
-    footerRight,
+    cardBodyClass,
+    moreLinkClass,
+    progresBarProps,
   } = props;
 
   const propsForSubFooter = {
     textLeft: subFooterLeft,
     textRight: subFooterRight,
-    wrapperClass: "flex flex-row justify-between",
-    leftTextClass: subfooterClassLeft?subfooterClassLeft:"text-md text-[#1f2c73]",
-    rightTextClass: subfooterClassRight?subfooterClassRight:"font-semibold text-md text-[#1f2c73]",
+    wrapperClass: subFooterWrapperClass
+      ? subFooterWrapperClass
+      : "flex flex-row justify-between h-8",
+    leftTextClass: subfooterClassLeft
+      ? subfooterClassLeft
+      : "text-md text-[#1f2c73]",
+    rightTextClass: subfooterClassRight
+      ? subfooterClassRight
+      : "font-semibold text-md text-[#1f2c73]",
   };
 
   const propsForFooter = {
     textLeft: footerLeft,
     textRight: footerRight,
-    wrapperClass: "flex flex-row justify-between items-end",
-    leftTextClass: footerClassLeft?footerClassLeft:"text-md text-[#1f2c73]",
-    rightTextClass: footerClassRight?footerClassRight:"font-semibold text-md text-[#1f2c73]",
+    wrapperClass: footerWrapperClass
+      ? footerWrapperClass
+      : "flex flex-row justify-between items-end",
+    leftTextClass: footerClassLeft ? footerClassLeft : "text-md text-[#1f2c73]",
+    rightTextClass: footerClassRight
+      ? footerClassRight
+      : "font-semibold text-md text-[#1f2c73]",
   };
 
   return (
@@ -53,29 +69,44 @@ const DebitCard = memo((props) => {
         >
           {title ? title : ""}
         </p>
-        <p className="font-semibold text-md text-[#1f2c73]">
+        <p
+          className={
+            moreLinkClass
+              ? moreLinkClass
+              : "font-semibold text-md text-[#1f2c73]"
+          }
+        >
           {moreLink ? moreLink : ""}
         </p>
       </div>
 
-      <div className="h-1/5">
-        <b className={subTitleClass ? subTitleClass : "text-[#1f2c73]"}>
-          {subTitle ? subTitle : ""}
-        </b>
+      <div className={subTitleClass ? subTitleClass : "text-[#1f2c73] h-1/5"}>
+        <b>{subTitle ? subTitle : ""}</b>
       </div>
 
-      <div className="h-1/5">
-        <p className="font-bold text-2xl text-[#fff]">
-          {cardBody ? cardBody : ""}
-        </p>
-      </div>
+      {cardBodyClass && (
+        <div
+          className={
+            cardBodyClass
+              ? cardBodyClass
+              : "font-bold text-2xl text-[#fff] h-1/5"
+          }
+        >
+          <p>{cardBody ? cardBody : ""}</p>
+        </div>
+      )}
 
-      <div className="h-8">
-        <TextBar {...propsForSubFooter} />
-      </div>
+      {/* <div className="h-8"> */}
+      {subFooterWrapperClass && <TextBar {...propsForSubFooter} />}
+      {/* </div> */}
 
-      
-        {hr === false ? <div className="h-1"></div> : <hr className="h-1"></hr>}
+      {hr === false ? (
+        <div className="h-1"></div>
+      ) : progresBarProps ? (
+        <SingleProgressBar {...progresBarProps} />
+      ) : (
+        <hr className="h-1"></hr>
+      )}
 
       <div className="h-5 mt-2">
         <TextBar {...propsForFooter} />
