@@ -259,3 +259,19 @@ export const goalsHistoryTableData= [
     icon: <CiBank size={20} color="white" />,
   },
 ]
+
+export  const BalanceTrendssData = [
+  { name: "JAN", y: 3000 },
+  { name: "FEB", y: 5474 },
+  { name: "MAR", y: 4555 },
+  { name: "APR", y: 6034 },
+  { name: "MAY", y: 2103 },
+  { name: "JUN", y: 3023 },
+  { name: "JUL", y: 1107 },
+  { name: "AUG", y: 1506 },
+  { name: "SEP", y: 2505 },
+  { name: "OCT", y: 4504 },
+  { name: "NOV", y: 3504 },
+  { name: "DEC", y: 5504 },
+];
+

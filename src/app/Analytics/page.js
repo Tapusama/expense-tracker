@@ -1,18 +1,14 @@
 "use client";
 import React, { memo } from 'react'
 import "./analytics.css";
-import CustomCards from "@/components/Customcards/CustomCards";
-import Title from "@/components/Title/Title";
-import HighChartLineGraph from "@/components/Highcharts/HighChartLine";
-import { CiSquarePlus } from "react-icons/ci";
-import DebitCard from "@/components/Customcards/DebitCard";
-import SimpleChips from "@/components/SimpleChips/SimpleChips";
-import ProgressCircle from '@/components/ProgressCircle';
-import ExpenseTablewithBar from '@/components/ExpenseTablewithBar/ExpenseTablewithBar';
-import { expenseData, goalsHistoryTableData } from '../../../public/data';
 import CustomTable from '@/components/Table';
 import Tabs from '@/components/Tabs';
 import AnanalyticsTabComp from '@/components/AnalyticsComponents/AnanalyticsTabComp';
+import ExpencesTabComp from '@/components/AnalyticsComponents/ExpencesTabComp';
+import IncomeTabComp from '@/components/AnalyticsComponents/IncomeTabcomp';
+import IncomevsExpTabComp from '@/components/AnalyticsComponents/IncomevsExpTabComp';
+import TransactionHistoryTabComp from '@/components/AnalyticsComponents/TransactionHistoryTabComp';
+import BalanceTabComp from '@/components/AnalyticsComponents/BalanceTabComp';
 
 
 const Analytics = memo((props) => {
@@ -26,28 +22,27 @@ const Analytics = memo((props) => {
       },
       {
         label: "Expenses",
-        content:
-          "Fugiat dolor et quis in incididunt aute. Ullamco voluptate consectetur dolor officia sunt est dolor sint.",
+        content:<ExpencesTabComp/>,
       },
       {
         label: "Income",
         content:
-          <CustomTable />,
+          <IncomeTabComp />,
       },
       {
         label: "Income vs Expenses",
         content:
-          <CustomTable />,
+          <IncomevsExpTabComp />,
       },
       {
         label: "Balance",
         content:
-          <CustomTable />,
+          <BalanceTabComp />,
       },
       {
         label: "Transaction History",
         content:
-          <CustomTable />,
+          <TransactionHistoryTabComp />,
       },
     ],
   }

@@ -24,3 +24,17 @@ body {
 .dashBoardSection{
   max-height: 24rem;
 }
+
+.LeftContainer {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  gap: 15px;
+}
+
+.RightContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}

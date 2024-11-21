@@ -5,6 +5,7 @@ import MonthlyBudgetsSlides from "../DashbordComp/MonthlyBudgetsSlides";
 import MultiprogressBar from "../ProgressBar/MultiProgressBar";
 import PaymenthistorySlide from "../DashbordComp/PaymenthistorySlide";
 import SavingsSlides from "../DashbordComp/SavingsSlides";
+import ProgressCircle from "../ProgressCircle";
 
 const ExpenseTablewithBar = memo((props) => {
   const { data, slides, type, title, moreLink } = props;
@@ -15,6 +16,18 @@ const ExpenseTablewithBar = memo((props) => {
         <p>{title}</p> {moreLink && <p>{moreLink}</p>}
       </div>
       {type && type == "Expense" && <MultiprogressBar data={data} />}
+      {type && type == "ExpenseTab" && (
+        <div className="flex justify-center h-2/3" >
+          <ProgressCircle
+            progress={77}
+            size={150}
+            strokeWidth={8}
+            color={"#51BB25"}
+            RadiusOfCircle={40}
+            fontSize="10px"
+          />
+        </div>
+      )}
 
       <div
         className={
@@ -32,11 +45,11 @@ const ExpenseTablewithBar = memo((props) => {
               amount: e?.amount,
               percentage: e?.style?.width,
               color: e?.style?.backgroundColor,
-              icon:e?.icon
+              icon: e?.icon,
             };
             return (
               <div key={i}>
-                {type && type == "Expense" ? (
+                {(type && type == "Expense") || type == "ExpenseTab" ? (
                   <ExpenseItemSlides key={i} {...props} />
                 ) : type == "Budget" ? (
                   <MonthlyBudgetsSlides key={i} {...props} />

@@ -8,6 +8,7 @@ import SmallCards from "@/components/DashbordComp/SmallCards";
 import CustomTable from "@/components/Table";
 import DebitCard from "@/components/Customcards/DebitCard";
 import { CiSquarePlus } from "react-icons/ci";
+import { tableData } from "../../../public/data";
 
 const Wallet = memo((props) => {
   let BalanceTrendssData = [
@@ -162,7 +163,7 @@ const Wallet = memo((props) => {
             <SmallCards {...propsForMonthlyExpenses} />
           </div>
           <HighChartLineGraph {...propsForLinechart} />
-          <CustomTable />
+          <CustomTable tableData={tableData} />
         </div>
       </div>
     </div>
