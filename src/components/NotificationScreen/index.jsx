@@ -11,10 +11,10 @@ const Notificationscreen = memo((props) => {
           <div className="h-10 bg-gray-100 pt-2 rounded-t-lg font-bold">
             Notifications
           </div>
-          <div className="h-64">
+          <div className="container">
             {notificationData && notificationData.length > 0 ? (
               notificationData.map((e, i) => {
-                return <NotificationSlides />;
+                return <NotificationSlides key={i} />;
               })
             ) : (
               <div className="text-gray-300 border h-full flex flex-col justify-center">
