@@ -11,6 +11,7 @@ import { GiClothes } from "react-icons/gi";
 import { MdOutlineCastForEducation } from "react-icons/md";
 import DebitCard from "@/components/Customcards/DebitCard";
 import SimpleChips from "@/components/SimpleChips/SimpleChips";
+import MainPagelayOut from "@/components/MainPageLayOut";
 
 const Budget = memo((props) => {
   let BalanceTrendssData = [
@@ -114,33 +115,36 @@ const Budget = memo((props) => {
   }
 
   return (
-    <div className="bg-rgba(215, 226, 247, 0.48) flex flex-col container mx-auto py-10 gap-6">
-      <div>
-        <h3 className="text-xl font-semibold text-[#1e1b4b]">Budgets</h3>
-        <p className="text-sm py-2 text-[#8c8baf]">
-          You can manage your Budget and Estimates here.
-        </p>
-      </div>
-      <div className="flex flex-row container h-full gap-6">
-        <div className="budgetLeftContainer">
-          <CustomCards {...propsForGrocery} />
-          <CustomCards {...propsForTransportation} />
-          <CustomCards {...propsForCloths} />
-          <CustomCards {...propsForEducation} />
-          <Title {...propsAddMore} />
+    <MainPagelayOut>
+      <div className="bg-rgba(215, 226, 247, 0.48) flex flex-col container mx-auto py-10 gap-6">
+        <div>
+          <h3 className="text-xl font-semibold text-[#1e1b4b]">Budgets</h3>
+          <p className="text-sm py-2 text-[#8c8baf]">
+            You can manage your Budget and Estimates here.
+          </p>
         </div>
-        <div className="budgetRightContainer">
-          <Title {...propsForTitle} />
-          <DebitCard {...propsForSpending} />
-          <div className="flex flex-row border border-gray-100 shadow-sm rounded-md bg-white p-6">
-            {propsForSmallAmounts.data && propsForSmallAmounts.data.length > 0 && propsForSmallAmounts.data.map((e, i) => {
-              return <SimpleChips key={i} {...e} />
-            })}
+        <div className="flex flex-row container h-full gap-6">
+          <div className="budgetLeftContainer">
+            <CustomCards {...propsForGrocery} />
+            <CustomCards {...propsForTransportation} />
+            <CustomCards {...propsForCloths} />
+            <CustomCards {...propsForEducation} />
+            <Title {...propsAddMore} />
           </div>
-          <HighChartLineGraph {...propsForLinechart} />
+          <div className="budgetRightContainer">
+            <Title {...propsForTitle} />
+            <DebitCard {...propsForSpending} />
+            <div className="flex flex-row border border-gray-100 shadow-sm rounded-md bg-white p-6">
+              {propsForSmallAmounts.data && propsForSmallAmounts.data.length > 0 && propsForSmallAmounts.data.map((e, i) => {
+                return <SimpleChips key={i} {...e} />
+              })}
+            </div>
+            <HighChartLineGraph {...propsForLinechart} />
+          </div>
         </div>
       </div>
-    </div>
+    </MainPagelayOut>
+
   );
 });
 

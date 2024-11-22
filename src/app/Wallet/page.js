@@ -9,6 +9,7 @@ import CustomTable from "@/components/Table";
 import DebitCard from "@/components/Customcards/DebitCard";
 import { CiSquarePlus } from "react-icons/ci";
 import { tableData } from "../../../public/data";
+import MainPagelayOut from "@/components/MainPageLayOut";
 
 const Wallet = memo((props) => {
   let BalanceTrendssData = [
@@ -137,36 +138,38 @@ const Wallet = memo((props) => {
   };
 
   return (
-    <div className="bg-rgba(215, 226, 247, 0.48) flex flex-col container mx-auto py-10 gap-6">
-      <div>
-        <h3 className="text-xl font-semibold text-[#1e1b4b]">Wallets</h3>
-        <p className="text-sm py-2 text-[#8c8baf]">
-          You can manage your wallet and all card details over here.
-        </p>
-      </div>
-      <div className="flex flex-row container h-full gap-6">
-        <div className="bankCardSectionWrapper">
-          <CustomCards />
-          <CustomCards />
-          <CustomCards />
-          <CustomCards />
-          <Title {...propsAddMore} />
+    <MainPagelayOut>
+      <div className="bg-rgba(215, 226, 247, 0.48) flex flex-col container mx-auto py-10 gap-6">
+        <div>
+          <h3 className="text-xl font-semibold text-[#1e1b4b]">Wallets</h3>
+          <p className="text-sm py-2 text-[#8c8baf]">
+            You can manage your wallet and all card details over here.
+          </p>
         </div>
-        <div className="bankCardDetailsWrapper">
-          <Title {...propsForTitle} />
-          <div className="flex flex-row gap-6">
-            <DebitCard {...propsForPersonalFunds} />
-            <DebitCard {...propsForDebitCard} />
+        <div className="flex flex-row container h-full gap-6">
+          <div className="bankCardSectionWrapper">
+            <CustomCards />
+            <CustomCards />
+            <CustomCards />
+            <CustomCards />
+            <Title {...propsAddMore} />
           </div>
-          <div className="flex flex-row gap-6">
-            <SmallCards {...propsForTotalBalance} />
-            <SmallCards {...propsForMonthlyExpenses} />
+          <div className="bankCardDetailsWrapper">
+            <Title {...propsForTitle} />
+            <div className="flex flex-row gap-6">
+              <DebitCard {...propsForPersonalFunds} />
+              <DebitCard {...propsForDebitCard} />
+            </div>
+            <div className="flex flex-row gap-6">
+              <SmallCards {...propsForTotalBalance} />
+              <SmallCards {...propsForMonthlyExpenses} />
+            </div>
+            <HighChartLineGraph {...propsForLinechart} />
+            <CustomTable tableData={tableData} />
           </div>
-          <HighChartLineGraph {...propsForLinechart} />
-          <CustomTable tableData={tableData} />
         </div>
       </div>
-    </div>
+    </MainPagelayOut>
   );
 });
 

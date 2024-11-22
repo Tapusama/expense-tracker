@@ -9,6 +9,7 @@ import IncomeTabComp from '@/components/AnalyticsComponents/IncomeTabcomp';
 import IncomevsExpTabComp from '@/components/AnalyticsComponents/IncomevsExpTabComp';
 import TransactionHistoryTabComp from '@/components/AnalyticsComponents/TransactionHistoryTabComp';
 import BalanceTabComp from '@/components/AnalyticsComponents/BalanceTabComp';
+import MainPagelayOut from '@/components/MainPageLayOut';
 
 
 const Analytics = memo((props) => {
@@ -22,7 +23,7 @@ const Analytics = memo((props) => {
       },
       {
         label: "Expenses",
-        content:<ExpencesTabComp/>,
+        content: <ExpencesTabComp />,
       },
       {
         label: "Income",
@@ -48,17 +49,19 @@ const Analytics = memo((props) => {
   }
 
   return (
-    <div className="bg-rgba(215, 226, 247, 0.48) flex flex-col container mx-auto py-10 gap-6">
-      <div>
-        <h3 className="text-xl font-semibold text-[#1e1b4b]">Analytics</h3>
-        <p className="text-sm py-2 text-[#8c8baf]">
-          You can manage your Analytics here.
-        </p>
-      </div>
-      <div className="flex flex-row container h-full w-full gap-6">
-        <Tabs {...propsForTabs} />
-      </div>
-    </div>
+    <MainPagelayOut>
+      <div className="bg-rgba(215, 226, 247, 0.48) flex flex-col container mx-auto py-10 gap-6">
+        <div>
+          <h3 className="text-xl font-semibold text-[#1e1b4b]">Analytics</h3>
+          <p className="text-sm py-2 text-[#8c8baf]">
+            You can manage your Analytics here.
+          </p>
+        </div>
+        <div className="flex flex-row container h-full w-full gap-6">
+          <Tabs {...propsForTabs} />
+        </div>
+      </div></MainPagelayOut>
+
   );
 });
 

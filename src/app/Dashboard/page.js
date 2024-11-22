@@ -19,6 +19,7 @@ import { FiBookOpen } from "react-icons/fi";
 import { MdOutlinePets } from "react-icons/md";
 import { MdOutlineSavings } from "react-icons/md";
 import { tableData } from "../../../public/data";
+import MainPagelayOut from "@/components/MainPageLayOut";
 
 
 const Dashboard = memo((props) => {
@@ -36,7 +37,7 @@ const Dashboard = memo((props) => {
       catagory: "Fuel",
       amount: 22600,
       style: { width: "22%", backgroundColor: "#f59e0b" },
-      icon: <BsFuelPump  size={25} color="white" />
+      icon: <BsFuelPump size={25} color="white" />
     },
     {
       catagory: "Transport",
@@ -48,7 +49,7 @@ const Dashboard = memo((props) => {
       catagory: "Healthcare",
       amount: 15600,
       style: { width: "30%", backgroundColor: "#84cc16" },
-      icon: <GiHealthNormal  size={25} color="white" />
+      icon: <GiHealthNormal size={25} color="white" />
     },
     {
       catagory: "Education",
@@ -143,14 +144,13 @@ const Dashboard = memo((props) => {
 
   const propsForLinechart = {
     title: "Balace Trends",
-    subtitle: `Rs. ${
-      BalanceTrendssData && BalanceTrendssData.length > 0
-        ? BalanceTrendssData.reduce(
-            (accumulator, current) => accumulator + current.y,
-            0
-          )
-        : 0
-    }`,
+    subtitle: `Rs. ${BalanceTrendssData && BalanceTrendssData.length > 0
+      ? BalanceTrendssData.reduce(
+        (accumulator, current) => accumulator + current.y,
+        0
+      )
+      : 0
+      }`,
     series: [
       {
         name: "Target (Rs.)",
@@ -311,91 +311,94 @@ const Dashboard = memo((props) => {
     title: "Saving Goals",
   };
   return (
-    <div className="bg-rgba(215, 226, 247, 0.48) flex flex-col container mx-auto py-10 gap-6">
-      <div>
-        <h3 className="text-xl font-semibold text-[#23347b]">Dashboard</h3>
-        <p style={{ color: "#8c8baf", fontSize: "14px" }}>
-          Welcome Expense Tracker!!
-        </p>
+    <MainPagelayOut>
+      <div className="bg-rgba(215, 226, 247, 0.48) flex flex-col container mx-auto py-10 gap-6">
+        <div>
+          <h3 className="text-xl font-semibold text-[#23347b]">Dashboard</h3>
+          <p style={{ color: "#8c8baf", fontSize: "14px" }}>
+            Welcome Expense Tracker!!
+          </p>
+        </div>
+
+        <section className="flex xl:gap-2 lg:gap-2 sm:gap-2 xl:flex-row md:flex-row sm:flex-col sm:w-full">
+          {sectionOneData &&
+            sectionOneData.length > 0 &&
+            sectionOneData.map((e, i) => {
+              let propsFor = e
+              return <SmallCards key={i} {...propsFor} />;
+            })}
+        </section>
+
+        <section className="flex flex-row">
+          <div
+            className="border border-gray-100 shadow-md rounded-md"
+            style={{
+              width: "60%",
+            }}
+          >
+            <HighChartLineGraph {...propsForLinechart} />
+          </div>
+          <div
+            className="border border-gray-100 shadow-md rounded-md ms-4"
+            style={{ width: "40%" }}
+          >
+            <ExpenseTablewithBar {...propsForEXpenseBar} />
+          </div>
+        </section>
+
+        <section className="flex flex-row">
+          <div
+            className="border border-gray-100 shadow-md rounded-md"
+            style={{
+              width: "40%",
+            }}
+          >
+            <ExpenseTablewithBar {...propsForBudgetBar} />
+          </div>
+          <div
+            className="border border-gray-100 shadow-md rounded-md ms-4"
+            style={{ width: "60%" }}
+          >
+            <HighChartColumnGraph {...propsForcolumnchart} />
+          </div>
+        </section>
+
+        <section className="flex flex-row">
+          <div
+            className="border border-gray-100 shadow-md rounded-md"
+            style={{
+              width: "60%",
+            }}
+          >
+            <StackedColumnChart {...propsForWeeklyExpensesChart} />
+          </div>
+          <div
+            className="border border-gray-100 shadow-md rounded-md ms-4"
+            style={{ width: "40%" }}
+          >
+            <ExpenseTablewithBar {...propsForPaymentHistory} />
+          </div>
+        </section>
+
+        <section className="flex flex-row">
+          <div
+            className="border border-gray-100 shadow-md rounded-md"
+            style={{
+              width: "40%",
+            }}
+          >
+            <ExpenseTablewithBar {...propsForSavingGoals} />
+          </div>
+          <div
+            className="border border-gray-100 shadow-md rounded-md ms-4"
+            style={{ width: "60%" }}
+          >
+            <CustomTable tableData={tableData} />
+          </div>
+        </section>
       </div>
+    </MainPagelayOut>
 
-      <section className="flex xl:gap-2 lg:gap-2 sm:gap-2 xl:flex-row md:flex-row sm:flex-col sm:w-full">
-        {sectionOneData &&
-          sectionOneData.length > 0 &&
-          sectionOneData.map((e, i) => {
-            let propsFor=e
-            return <SmallCards key={i} {...propsFor} />;
-          })}
-      </section>
-
-      <section className="flex flex-row">
-        <div
-          className="border border-gray-100 shadow-md rounded-md"
-          style={{
-            width: "60%",
-          }}
-        >
-          <HighChartLineGraph {...propsForLinechart} />
-        </div>
-        <div
-          className="border border-gray-100 shadow-md rounded-md ms-4"
-          style={{ width: "40%" }}
-        >
-          <ExpenseTablewithBar {...propsForEXpenseBar} />
-        </div>
-      </section>
-
-      <section className="flex flex-row">
-        <div
-          className="border border-gray-100 shadow-md rounded-md"
-          style={{
-            width: "40%",
-          }}
-        >
-          <ExpenseTablewithBar {...propsForBudgetBar} />
-        </div>
-        <div
-          className="border border-gray-100 shadow-md rounded-md ms-4"
-          style={{ width: "60%" }}
-        >
-          <HighChartColumnGraph {...propsForcolumnchart} />
-        </div>
-      </section>
-
-      <section className="flex flex-row">
-        <div
-          className="border border-gray-100 shadow-md rounded-md"
-          style={{
-            width: "60%",
-          }}
-        >
-          <StackedColumnChart {...propsForWeeklyExpensesChart} />
-        </div>
-        <div
-          className="border border-gray-100 shadow-md rounded-md ms-4"
-          style={{ width: "40%" }}
-        >
-          <ExpenseTablewithBar {...propsForPaymentHistory} />
-        </div>
-      </section>
-
-      <section className="flex flex-row">
-        <div
-          className="border border-gray-100 shadow-md rounded-md"
-          style={{
-            width: "40%",
-          }}
-        >
-          <ExpenseTablewithBar {...propsForSavingGoals} />
-        </div>
-        <div
-          className="border border-gray-100 shadow-md rounded-md ms-4"
-          style={{ width: "60%" }}
-        >
-          <CustomTable  tableData={tableData}/>
-        </div>
-      </section>
-    </div>
   );
 });
 

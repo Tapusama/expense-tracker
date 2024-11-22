@@ -17,6 +17,7 @@ import ExpenseTablewithBar from '@/components/ExpenseTablewithBar/ExpenseTablewi
 import MonthlyBudgetsSlides from '@/components/DashbordComp/MonthlyBudgetsSlides';
 import { expenseData, goalsHistoryTableData } from '../../../public/data';
 import CustomTable from '@/components/Table';
+import MainPagelayOut from '@/components/MainPageLayOut';
 
 const Goal = memo((props) => {
   let BalanceTrendssData = [
@@ -133,42 +134,44 @@ const Goal = memo((props) => {
   };
 
   return (
-    <div className="bg-rgba(215, 226, 247, 0.48) flex flex-col container mx-auto py-10 gap-6">
-      <div>
-        <h3 className="text-xl font-semibold text-[#1e1b4b]">Goals</h3>
-        <p className="text-sm py-2 text-[#8c8baf]">
-          You can manage your Goals here.
-        </p>
-      </div>
-      <div className="flex flex-row container h-full gap-6">
-        <div className="goalLeftContainer">
-          <CustomCards {...propsForGrocery} />
-          <CustomCards {...propsForTransportation} />
-          <CustomCards {...propsForCloths} />
-          <CustomCards {...propsForEducation} />
-          <Title {...propsAddMore} />
+    <MainPagelayOut>
+      <div className="bg-rgba(215, 226, 247, 0.48) flex flex-col container mx-auto py-10 gap-6">
+        <div>
+          <h3 className="text-xl font-semibold text-[#1e1b4b]">Goals</h3>
+          <p className="text-sm py-2 text-[#8c8baf]">
+            You can manage your Goals here.
+          </p>
         </div>
-        <div className="goalRightContainer">
-          <Title {...propsForTitle} />
-          <DebitCard {...propsForSpending} />
-          <div className="flex flex-row border border-gray-100 shadow-sm rounded-md bg-white p-6">
-            {propsForSmallAmounts.data && propsForSmallAmounts.data.length > 0 && propsForSmallAmounts.data.map((e, i) => {
-              return <SimpleChips key={i} {...e} />
-            })}
+        <div className="flex flex-row container h-full gap-6">
+          <div className="goalLeftContainer">
+            <CustomCards {...propsForGrocery} />
+            <CustomCards {...propsForTransportation} />
+            <CustomCards {...propsForCloths} />
+            <CustomCards {...propsForEducation} />
+            <Title {...propsAddMore} />
           </div>
-          <div
-            className="border border-gray-100 shadow-md rounded-md"
-          >
-            <ExpenseTablewithBar {...propsForBudgetBar} />
-          </div>
-          <div
-            className="border border-gray-100 shadow-md rounded-md"
-          >
-            <CustomTable tableData={goalsHistoryTableData}/>
+          <div className="goalRightContainer">
+            <Title {...propsForTitle} />
+            <DebitCard {...propsForSpending} />
+            <div className="flex flex-row border border-gray-100 shadow-sm rounded-md bg-white p-6">
+              {propsForSmallAmounts.data && propsForSmallAmounts.data.length > 0 && propsForSmallAmounts.data.map((e, i) => {
+                return <SimpleChips key={i} {...e} />
+              })}
+            </div>
+            <div
+              className="border border-gray-100 shadow-md rounded-md"
+            >
+              <ExpenseTablewithBar {...propsForBudgetBar} />
+            </div>
+            <div
+              className="border border-gray-100 shadow-md rounded-md"
+            >
+              <CustomTable tableData={goalsHistoryTableData} />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </MainPagelayOut>
   );
 });
 
